@@ -1,0 +1,2 @@
+# Python_FacialBi
+GPC项目代码测试,包含CSV分块写入clickhouse。使用Python进行sql代码编写，调度
