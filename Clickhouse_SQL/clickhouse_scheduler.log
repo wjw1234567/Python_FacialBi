@@ -1,0 +1,76 @@
+2025-08-14 11:35:46,972 - INFO - 成功连接到ClickHouse: localhost:9000/Facial_1
+2025-08-14 11:35:46,973 - INFO - 调度任务已设置：每分钟执行一次示例任务
+2025-08-14 11:35:46,973 - INFO - 调度器开始运行...
+2025-08-14 11:36:46,998 - INFO - 执行SQL: 
+            CREATE TABLE IF NOT EXISTS user_stats (
+                date Date,
+                user_id UInt64,
+                page_views UInt32,
+                clicks UInt32
+            ) ENGINE = MergeTree()
+            ORDER BY (date, user_id)
+            
+2025-08-14 11:36:47,123 - INFO - SQL执行成功，影响行数: 0
+2025-08-14 11:36:47,123 - INFO - 执行SQL: 
+            INSERT INTO user_stats (date, user_id, page_views, clicks)
+            VALUES (%(date)s, %(user_id)s, %(page_views)s, %(clicks)s)
+            
+2025-08-14 11:36:47,181 - INFO - SQL执行成功，影响行数: 0
+2025-08-14 11:36:47,181 - INFO - 执行SQL: 
+            SELECT date, COUNT(DISTINCT user_id) as total_users, 
+                   SUM(page_views) as total_views, SUM(clicks) as total_clicks
+            FROM user_stats
+            WHERE date = %(date)s
+            GROUP BY date
+            
+2025-08-14 11:36:47,252 - INFO - SQL执行成功，影响行数: 1
+2025-08-14 11:36:47,253 - INFO - 统计结果 - 日期: 2023-10-01, 用户数: 1, 浏览量: 10, 点击量: 3
+2025-08-14 11:37:47,285 - INFO - 执行SQL: 
+            CREATE TABLE IF NOT EXISTS user_stats (
+                date Date,
+                user_id UInt64,
+                page_views UInt32,
+                clicks UInt32
+            ) ENGINE = MergeTree()
+            ORDER BY (date, user_id)
+            
+2025-08-14 11:37:47,332 - INFO - SQL执行成功，影响行数: 0
+2025-08-14 11:37:47,333 - INFO - 执行SQL: 
+            INSERT INTO user_stats (date, user_id, page_views, clicks)
+            VALUES (%(date)s, %(user_id)s, %(page_views)s, %(clicks)s)
+            
+2025-08-14 11:37:47,382 - INFO - SQL执行成功，影响行数: 0
+2025-08-14 11:37:47,382 - INFO - 执行SQL: 
+            SELECT date, COUNT(DISTINCT user_id) as total_users, 
+                   SUM(page_views) as total_views, SUM(clicks) as total_clicks
+            FROM user_stats
+            WHERE date = %(date)s
+            GROUP BY date
+            
+2025-08-14 11:37:47,437 - INFO - SQL执行成功，影响行数: 1
+2025-08-14 11:37:47,437 - INFO - 统计结果 - 日期: 2023-10-01, 用户数: 1, 浏览量: 20, 点击量: 6
+2025-08-14 11:38:47,464 - INFO - 执行SQL: 
+            CREATE TABLE IF NOT EXISTS user_stats (
+                date Date,
+                user_id UInt64,
+                page_views UInt32,
+                clicks UInt32
+            ) ENGINE = MergeTree()
+            ORDER BY (date, user_id)
+            
+2025-08-14 11:38:47,509 - INFO - SQL执行成功，影响行数: 0
+2025-08-14 11:38:47,509 - INFO - 执行SQL: 
+            INSERT INTO user_stats (date, user_id, page_views, clicks)
+            VALUES (%(date)s, %(user_id)s, %(page_views)s, %(clicks)s)
+            
+2025-08-14 11:38:47,562 - INFO - SQL执行成功，影响行数: 0
+2025-08-14 11:38:47,562 - INFO - 执行SQL: 
+            SELECT date, COUNT(DISTINCT user_id) as total_users, 
+                   SUM(page_views) as total_views, SUM(clicks) as total_clicks
+            FROM user_stats
+            WHERE date = %(date)s
+            GROUP BY date
+            
+2025-08-14 11:38:47,623 - INFO - SQL执行成功，影响行数: 1
+2025-08-14 11:38:47,623 - INFO - 统计结果 - 日期: 2023-10-01, 用户数: 1, 浏览量: 30, 点击量: 9
+2025-08-14 11:38:48,585 - INFO - 调度器已手动停止
