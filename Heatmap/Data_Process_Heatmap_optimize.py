@@ -112,12 +112,27 @@ def process_one_person(df, target_bins):
     return pd.DataFrame(results)
 
 
+
+# ==========================
+# 4. DataFrame 批量写入 ClickHouse
+# ==========================
+def insert_df(client, table: str, df: pd.DataFrame):
+    if df.empty:
+        return
+    columns = list(df.columns)
+    escaped = [f"`{c}`" for c in columns]
+    data = [tuple(r) for r in df.itertuples(index=False, name=None)]
+    insert_sql = f"INSERT INTO {table} ({','.join(escaped)}) VALUES"
+    # print(insert_sql)
+    client.execute(insert_sql, data)
+
+
 # ==========================
 # 3. 主流程：整天拉取 → groupby 并行 → 写回
 # ==========================
 def main():
     # 拿到所有 distinct date
-    date_list = client.execute("SELECT DISTINCT toDate(capture_time) as d FROM dwd_user_capture_heatmap ORDER BY d")
+    date_list = client.execute("SELECT DISTINCT toDate(capture_time) as d FROM dwd_user_capture_original ORDER BY d")
     date_list = [r[0] for r in date_list]
 
     target_bins = [-60, -45, -30, -15, -10, -5, 0, 5, 10, 15, 30, 45, 60]
@@ -131,7 +146,7 @@ def main():
                    age,
                    member_tier,
                    gender                  
-            FROM dwd_user_capture_heatmap
+            FROM dwd_user_capture_original
             WHERE toDate(capture_time) = '{date}'
             ORDER BY profile_id, capture_time
         """
@@ -149,22 +164,16 @@ def main():
         dfs = [d for d in dfs if d is not None]
         if dfs:
             big_df = pd.concat(dfs, ignore_index=True)
-            insert_df(client, "dws_visitor_path_track_heatmap", big_df)
-            print(f"{date} 写入 {len(big_df)} 行")
+            total_rows=len(big_df)
+            batch_size=10000 #批量写入
 
+            for i in range(0,total_rows,batch_size):
+                batch_df = big_df.iloc[i:i + batch_size]  # 截取当前批次数据
+                insert_df(client, "dws_visitor_path_track_heatmap", batch_df)
+                print(
+                    f"{date} 第 {i // batch_size + 1} 批写入 {len(batch_df)} 行，累计 {min(i + batch_size, total_rows)}/{total_rows} 行")
 
-# ==========================
-# 4. DataFrame 批量写入 ClickHouse
-# ==========================
-def insert_df(client, table: str, df: pd.DataFrame):
-    if df.empty:
-        return
-    columns = list(df.columns)
-    escaped = [f"`{c}`" for c in columns]
-    data = [tuple(r) for r in df.itertuples(index=False, name=None)]
-    insert_sql = f"INSERT INTO {table} ({','.join(escaped)}) VALUES"
-    # print(insert_sql)
-    client.execute(insert_sql, data)
+            print(f"{date} 总条数写入 {len(big_df)} 行")
 
 
 if __name__ == "__main__":
