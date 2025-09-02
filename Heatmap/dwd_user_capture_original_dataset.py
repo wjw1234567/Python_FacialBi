@@ -20,10 +20,10 @@ client = Client(
 # ---------------------
 def mock_data_generator(num_users=300, total_records=30000, start_date="2025-08-01", days=3):
     regions = [
-        ('1', 'Zone P1A'), ('2', 'Zone P1B'), ('3', 'Zone P1C'), ('4', 'Zone P2A'),
-        ('5', 'Zone P2B'), ('6', 'Zone P2C'), ('7', 'Zone P1D'), ('8', 'Zone P1E'),
-        ('9', 'Zone P1F'), ('10', 'Zone P2D'), ('11', 'Zone P2E'), ('12', 'Zone P2F'),
-        ('13', 'Zone P2G')
+        (1, 'Zone P1A'), (2, 'Zone P1B'), (3, 'Zone P1C'), (4, 'Zone P2A'),
+        (5, 'Zone P2B'), (6, 'Zone P2C'), (7, 'Zone P1D'), (8, 'Zone P1E'),
+        (9, 'Zone P1F'), (10, 'Zone P2D'), (11, 'Zone P2E'), (12, 'Zone P2F'),
+        (13, 'Zone P2G')
     ]
     member_tiers = ['Basic', 'Silver', 'Gold', 'Diamond']
     start_date = datetime.strptime(start_date, "%Y-%m-%d")
@@ -44,10 +44,10 @@ def mock_data_generator(num_users=300, total_records=30000, start_date="2025-08-
             day_start = start_date + timedelta(days=day_offset)
             num_captures = random.randint(avg_records // days // 2, avg_records // days * 2)
 
-            capture_time = day_start + timedelta(hours=random.randint(8, 12))
+            capture_time = day_start + timedelta(hours=random.randint(0, 23))
             for _ in range(num_captures):
                 region_id, region_name = random.choice(regions)
-                camera_id = f"CAM-{region_id}-{random.randint(1, 5)}"
+                camera_id = int(f"{region_id}{random.randint(1, 5)}")
                 yield (
                     uid, profile_type, member_tier, age, gender,
                     camera_id, region_id, region_name, capture_time,datetime.now()
