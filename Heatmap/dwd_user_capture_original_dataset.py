@@ -34,7 +34,7 @@ def mock_data_generator(num_users=300, total_records=30000, start_date="2025-08-
         profile_type = random.choice([1, 2, 3, 4])
         member_tier = random.choice(member_tiers) if profile_type == 1 else ''
         age = random.randint(18, 70)
-        gender = random.choice([0, 1])
+        gender = random.choice([1, 2])
         users.append((uid, profile_type, member_tier, age, gender))
 
     avg_records = total_records // num_users

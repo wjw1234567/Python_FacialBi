@@ -53,7 +53,7 @@ class ClickHouseHandler:
                     password=self.password, database=self.database) as client:
             print(f"执行删除: {delete_sql}")
             client.execute(delete_sql,params=condict)
-            print(f"已执行完成删除 {table_name}  的数据")
+            print(f"{condict.get('date','')} 已执行完成删除 {table_name}  的数据")
 
 
     # 配合stream_query_insert流式查询，需要加工的采取这种方式，可支配的
@@ -83,7 +83,7 @@ class ClickHouseHandler:
             col_str = ', '.join(column_names)
 
             client.execute(f"INSERT INTO {target_table} ({col_str}) {source_sql}",params=condit)
-        print(f"已写入 到 {target_table}")
+        print(f"{condit.get('date','')}已写入 到  {target_table}")
 
 
 

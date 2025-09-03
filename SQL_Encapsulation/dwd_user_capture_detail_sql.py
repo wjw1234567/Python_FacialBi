@@ -1,11 +1,13 @@
 from datetime  import datetime
-from ClickHouseHandler import ClickHouseHandler
+from ClickHouseHandler_log import ClickHouseHandler
 
 
 if __name__ == "__main__":
 
 
-    date=datetime.strptime("2025-08-25", "%Y-%m-%d").date()
+    # date=datetime.strptime("2025-08-25", "%Y-%m-%d").date()
+
+    date_list=["2025-08-25","2025-08-26","2025-08-27"]
 
     target_table = "dwd_user_capture_detail"
     delete_sql = f"alter table {target_table} delete where toDate(capture_time)=%(date)s"
@@ -73,9 +75,11 @@ if __name__ == "__main__":
 
     ch = ClickHouseHandler(host='localhost', port=9000, user='default', password='ck_test', database='Facial')
 
-    ch.delete_partition(delete_sql, target_table,{"date":date})
-    ch._insert_into_select(source_sql, target_table,{"date":date})
-    # ch.stream_query_insert(source_sql, target_table,{"date":date},1000)
+    for date in date_list:
+
+        ch.delete_partition(delete_sql, target_table,{"date":date})
+        ch._insert_into_select(source_sql, target_table,{"date":date})
+        # ch.stream_query_insert(source_sql, target_table,{"date":date},1000)
 
 
 

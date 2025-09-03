@@ -5,7 +5,9 @@ from ClickHouseHandler import ClickHouseHandler
 if __name__ == "__main__":
 
 
-    date=datetime.strptime("2025-08-25", "%Y-%m-%d").date()
+    # date=datetime.strptime("2025-08-25", "%Y-%m-%d").date()
+
+    date_list = ["2025-08-25", "2025-08-26", "2025-08-27"]
 
     target_table = "dws_profileid_aggregation"
     delete_sql = f"alter table  {target_table} delete where  date=%(date)s"
@@ -55,11 +57,12 @@ group by date,profile_id,region_id,camera_id,date_casino,region_name,gender,Age_
 
     ch = ClickHouseHandler(host='localhost', port=9000, user='default', password='ck_test', database='Facial')
 
-    ch.delete_partition(delete_sql, target_table,{"date":date})
-    ch._insert_into_select(source_sql, target_table,{"date":date})
-    # ch.stream_query_insert(source_sql, target_table,{"date":date},1000)
 
+    for date in date_list:
 
+        ch.delete_partition(delete_sql, target_table,{"date":date})
+        ch._insert_into_select(source_sql, target_table,{"date":date})
+        # ch.stream_query_insert(source_sql, target_table,{"date":date},1000)
 
 
 

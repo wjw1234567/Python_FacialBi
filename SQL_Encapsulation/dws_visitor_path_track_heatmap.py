@@ -99,6 +99,7 @@ def process_one_person(df, target_bins):
                 "profile_id": df["profile_id"].iloc[0],
                 "region_name": base_area,
                 "z0_time": pd.Timestamp(t1),
+                "date_hour":pd.Timestamp(t1).strftime("%H:00"),
                 "off_bin": off_bin,
                 "area_at_off": value["region_name"],
                 "member_tier":member_tier,
@@ -138,6 +139,13 @@ def main():
     target_bins = [-60, -45, -30, -15, -10, -5, 0, 5, 10, 15, 30, 45, 60]
 
     for date in date_list:
+
+
+        delete_sql=f"alter table dws_visitor_path_track_heatmap delete where date = '{date}'"
+
+        client.execute(delete_sql)
+
+
         query = f"""
             SELECT toDate(capture_time) as date,
                    profile_id,
@@ -160,6 +168,9 @@ def main():
         # groupby 并行
         grouped = [g for _, g in df_day.groupby("profile_id", sort=False)]
         dfs = Parallel(n_jobs=8)(delayed(process_one_person) (g, target_bins) for g in grouped)
+
+        print(f"{date} 已删除 {len(df_day)} 行")
+
 
         dfs = [d for d in dfs if d is not None]
         if dfs:
