@@ -718,3 +718,363 @@
 
     
 	参数: {'date': '2025-08-27'},执行时间：2025-09-03 16:44:06.078644
+2025-09-04 16:16:30 [INFO] 执行SQL成功: alter table dwd_user_capture_detail delete where toDate(capture_time)=%(date)s
+	参数: {'date': '2025-08-25'},执行时间：2025-09-04 16:16:30.377847
+2025-09-04 16:16:30 [INFO] 执行SQL成功: 获取列名SQL: SELECT * FROM (
+                 select
+           profile_id
+          , person_id
+          ,profile_type
+          ,member_tier
+          ,member_id
+          ,is_delete
+          ,person_status
+          ,album_id
+          ,merge_count
+          ,face_count
+          ,identify_num
+          ,card_type
+          ,address
+          ,name
+          ,age
+          ,gender
+          ,capture_id
+          ,region_id
+          ,region_name
+          ,region_type
+          ,camera_id
+          ,capture_time
+         , lead(toNullable(capture_time),1,toNullable(null)) over(partition by (toDate(capture_time),A1.profile_id)  ORDER BY profile_id,capture_time) next_capture_time
+         , now() batch_time
+        from
+    (
+        select
+              person_id
+          ,camera_id
+          ,capture_time
+          , profile_id
+          ,profile_type
+          ,member_tier
+          ,member_id
+          ,is_delete
+          ,person_status
+          ,album_id
+          ,merge_count
+          ,face_count
+          ,identify_num
+          ,card_type
+          ,address
+          ,name
+          ,age
+          ,gender
+          ,capture_id
+          ,region_id
+          ,region_name
+          ,'' region_type
+          , lag(region_id,1,0) over(partition by (toDate(capture_time),t1.profile_id) order by profile_id,capture_time) last_region_id
+    from dwd_user_capture_original t1
+    where toDate(t1.capture_time)=%(date)s
+        order by profile_id,capture_time
+        ) A1 where region_id <> last_region_id order by profile_id,capture_time
+
+    ) LIMIT 0
+	参数: {'date': '2025-08-25'},执行时间：2025-09-04 16:16:30.442794
+2025-09-04 16:16:30 [INFO] 执行SQL成功: INSERT INTO dwd_user_capture_detail (profile_id, person_id, profile_type, member_tier, member_id, is_delete, person_status, album_id, merge_count, face_count, identify_num, card_type, address, name, age, gender, capture_id, region_id, region_name, region_type, camera_id, capture_time, next_capture_time, batch_time) 
+                 select
+           profile_id
+          , person_id
+          ,profile_type
+          ,member_tier
+          ,member_id
+          ,is_delete
+          ,person_status
+          ,album_id
+          ,merge_count
+          ,face_count
+          ,identify_num
+          ,card_type
+          ,address
+          ,name
+          ,age
+          ,gender
+          ,capture_id
+          ,region_id
+          ,region_name
+          ,region_type
+          ,camera_id
+          ,capture_time
+         , lead(toNullable(capture_time),1,toNullable(null)) over(partition by (toDate(capture_time),A1.profile_id)  ORDER BY profile_id,capture_time) next_capture_time
+         , now() batch_time
+        from
+    (
+        select
+              person_id
+          ,camera_id
+          ,capture_time
+          , profile_id
+          ,profile_type
+          ,member_tier
+          ,member_id
+          ,is_delete
+          ,person_status
+          ,album_id
+          ,merge_count
+          ,face_count
+          ,identify_num
+          ,card_type
+          ,address
+          ,name
+          ,age
+          ,gender
+          ,capture_id
+          ,region_id
+          ,region_name
+          ,'' region_type
+          , lag(region_id,1,0) over(partition by (toDate(capture_time),t1.profile_id) order by profile_id,capture_time) last_region_id
+    from dwd_user_capture_original t1
+    where toDate(t1.capture_time)=%(date)s
+        order by profile_id,capture_time
+        ) A1 where region_id <> last_region_id order by profile_id,capture_time
+
+    
+	参数: {'date': '2025-08-25'},执行时间：2025-09-04 16:16:30.519443
+2025-09-04 16:16:30 [INFO] 执行SQL成功: alter table dwd_user_capture_detail delete where toDate(capture_time)=%(date)s
+	参数: {'date': '2025-08-26'},执行时间：2025-09-04 16:16:30.593058
+2025-09-04 16:16:30 [INFO] 执行SQL成功: 获取列名SQL: SELECT * FROM (
+                 select
+           profile_id
+          , person_id
+          ,profile_type
+          ,member_tier
+          ,member_id
+          ,is_delete
+          ,person_status
+          ,album_id
+          ,merge_count
+          ,face_count
+          ,identify_num
+          ,card_type
+          ,address
+          ,name
+          ,age
+          ,gender
+          ,capture_id
+          ,region_id
+          ,region_name
+          ,region_type
+          ,camera_id
+          ,capture_time
+         , lead(toNullable(capture_time),1,toNullable(null)) over(partition by (toDate(capture_time),A1.profile_id)  ORDER BY profile_id,capture_time) next_capture_time
+         , now() batch_time
+        from
+    (
+        select
+              person_id
+          ,camera_id
+          ,capture_time
+          , profile_id
+          ,profile_type
+          ,member_tier
+          ,member_id
+          ,is_delete
+          ,person_status
+          ,album_id
+          ,merge_count
+          ,face_count
+          ,identify_num
+          ,card_type
+          ,address
+          ,name
+          ,age
+          ,gender
+          ,capture_id
+          ,region_id
+          ,region_name
+          ,'' region_type
+          , lag(region_id,1,0) over(partition by (toDate(capture_time),t1.profile_id) order by profile_id,capture_time) last_region_id
+    from dwd_user_capture_original t1
+    where toDate(t1.capture_time)=%(date)s
+        order by profile_id,capture_time
+        ) A1 where region_id <> last_region_id order by profile_id,capture_time
+
+    ) LIMIT 0
+	参数: {'date': '2025-08-26'},执行时间：2025-09-04 16:16:30.684041
+2025-09-04 16:16:30 [INFO] 执行SQL成功: INSERT INTO dwd_user_capture_detail (profile_id, person_id, profile_type, member_tier, member_id, is_delete, person_status, album_id, merge_count, face_count, identify_num, card_type, address, name, age, gender, capture_id, region_id, region_name, region_type, camera_id, capture_time, next_capture_time, batch_time) 
+                 select
+           profile_id
+          , person_id
+          ,profile_type
+          ,member_tier
+          ,member_id
+          ,is_delete
+          ,person_status
+          ,album_id
+          ,merge_count
+          ,face_count
+          ,identify_num
+          ,card_type
+          ,address
+          ,name
+          ,age
+          ,gender
+          ,capture_id
+          ,region_id
+          ,region_name
+          ,region_type
+          ,camera_id
+          ,capture_time
+         , lead(toNullable(capture_time),1,toNullable(null)) over(partition by (toDate(capture_time),A1.profile_id)  ORDER BY profile_id,capture_time) next_capture_time
+         , now() batch_time
+        from
+    (
+        select
+              person_id
+          ,camera_id
+          ,capture_time
+          , profile_id
+          ,profile_type
+          ,member_tier
+          ,member_id
+          ,is_delete
+          ,person_status
+          ,album_id
+          ,merge_count
+          ,face_count
+          ,identify_num
+          ,card_type
+          ,address
+          ,name
+          ,age
+          ,gender
+          ,capture_id
+          ,region_id
+          ,region_name
+          ,'' region_type
+          , lag(region_id,1,0) over(partition by (toDate(capture_time),t1.profile_id) order by profile_id,capture_time) last_region_id
+    from dwd_user_capture_original t1
+    where toDate(t1.capture_time)=%(date)s
+        order by profile_id,capture_time
+        ) A1 where region_id <> last_region_id order by profile_id,capture_time
+
+    
+	参数: {'date': '2025-08-26'},执行时间：2025-09-04 16:16:30.762370
+2025-09-04 16:16:30 [INFO] 执行SQL成功: alter table dwd_user_capture_detail delete where toDate(capture_time)=%(date)s
+	参数: {'date': '2025-08-27'},执行时间：2025-09-04 16:16:30.819601
+2025-09-04 16:16:30 [INFO] 执行SQL成功: 获取列名SQL: SELECT * FROM (
+                 select
+           profile_id
+          , person_id
+          ,profile_type
+          ,member_tier
+          ,member_id
+          ,is_delete
+          ,person_status
+          ,album_id
+          ,merge_count
+          ,face_count
+          ,identify_num
+          ,card_type
+          ,address
+          ,name
+          ,age
+          ,gender
+          ,capture_id
+          ,region_id
+          ,region_name
+          ,region_type
+          ,camera_id
+          ,capture_time
+         , lead(toNullable(capture_time),1,toNullable(null)) over(partition by (toDate(capture_time),A1.profile_id)  ORDER BY profile_id,capture_time) next_capture_time
+         , now() batch_time
+        from
+    (
+        select
+              person_id
+          ,camera_id
+          ,capture_time
+          , profile_id
+          ,profile_type
+          ,member_tier
+          ,member_id
+          ,is_delete
+          ,person_status
+          ,album_id
+          ,merge_count
+          ,face_count
+          ,identify_num
+          ,card_type
+          ,address
+          ,name
+          ,age
+          ,gender
+          ,capture_id
+          ,region_id
+          ,region_name
+          ,'' region_type
+          , lag(region_id,1,0) over(partition by (toDate(capture_time),t1.profile_id) order by profile_id,capture_time) last_region_id
+    from dwd_user_capture_original t1
+    where toDate(t1.capture_time)=%(date)s
+        order by profile_id,capture_time
+        ) A1 where region_id <> last_region_id order by profile_id,capture_time
+
+    ) LIMIT 0
+	参数: {'date': '2025-08-27'},执行时间：2025-09-04 16:16:30.883281
+2025-09-04 16:16:30 [INFO] 执行SQL成功: INSERT INTO dwd_user_capture_detail (profile_id, person_id, profile_type, member_tier, member_id, is_delete, person_status, album_id, merge_count, face_count, identify_num, card_type, address, name, age, gender, capture_id, region_id, region_name, region_type, camera_id, capture_time, next_capture_time, batch_time) 
+                 select
+           profile_id
+          , person_id
+          ,profile_type
+          ,member_tier
+          ,member_id
+          ,is_delete
+          ,person_status
+          ,album_id
+          ,merge_count
+          ,face_count
+          ,identify_num
+          ,card_type
+          ,address
+          ,name
+          ,age
+          ,gender
+          ,capture_id
+          ,region_id
+          ,region_name
+          ,region_type
+          ,camera_id
+          ,capture_time
+         , lead(toNullable(capture_time),1,toNullable(null)) over(partition by (toDate(capture_time),A1.profile_id)  ORDER BY profile_id,capture_time) next_capture_time
+         , now() batch_time
+        from
+    (
+        select
+              person_id
+          ,camera_id
+          ,capture_time
+          , profile_id
+          ,profile_type
+          ,member_tier
+          ,member_id
+          ,is_delete
+          ,person_status
+          ,album_id
+          ,merge_count
+          ,face_count
+          ,identify_num
+          ,card_type
+          ,address
+          ,name
+          ,age
+          ,gender
+          ,capture_id
+          ,region_id
+          ,region_name
+          ,'' region_type
+          , lag(region_id,1,0) over(partition by (toDate(capture_time),t1.profile_id) order by profile_id,capture_time) last_region_id
+    from dwd_user_capture_original t1
+    where toDate(t1.capture_time)=%(date)s
+        order by profile_id,capture_time
+        ) A1 where region_id <> last_region_id order by profile_id,capture_time
+
+    
+	参数: {'date': '2025-08-27'},执行时间：2025-09-04 16:16:30.979469

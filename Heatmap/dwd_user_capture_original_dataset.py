@@ -44,7 +44,13 @@ def mock_data_generator(num_users=300, total_records=30000, start_date="2025-08-
             day_start = start_date + timedelta(days=day_offset)
             num_captures = random.randint(avg_records // days // 2, avg_records // days * 2)
 
-            capture_time = day_start + timedelta(hours=random.randint(0, 23))
+
+            capture_time = day_start + timedelta(
+                hours=random.randint(0, 23),
+                minutes=random.randint(0, 59),  # 新增：随机分钟
+                seconds=random.randint(0, 59)  # 新增：随机秒
+            )
+
             for _ in range(num_captures):
                 region_id, region_name = random.choice(regions)
                 camera_id = int(f"{region_id}{random.randint(1, 5)}")
@@ -52,8 +58,8 @@ def mock_data_generator(num_users=300, total_records=30000, start_date="2025-08-
                     uid, profile_type, member_tier, age, gender,
                     camera_id, region_id, region_name, capture_time,datetime.now()
                 )
-                # 往后推进 1~20 分钟
-                capture_time += timedelta(minutes=random.randint(1, 20))
+                # 往后推进 1~20 分钟+ 随机0~59秒（新增秒级随机）
+                capture_time += timedelta(minutes=random.randint(1, 20),seconds=random.randint(0, 59))
                 if capture_time.date() != day_start.date():
                     break
 
