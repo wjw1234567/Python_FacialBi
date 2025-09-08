@@ -29,6 +29,8 @@ if __name__ == "__main__":
       ,  profile_type
       ,t1.camera_id  camera_id
       ,count(t1.camera_id) capture_count
+      
+--      如果在该区域无显示时间，则取该区域的平均时间作为这个人的停留时间
       ,case when toDecimal64(max(dateDiff(second , t1.capture_time,coalesce(t1.next_capture_time,t1.capture_time))),2)
               =toDecimal64(0,2)  then toDecimal64(max(t2.stay_time_avg),2)
            else toDecimal64(max(dateDiff(second , t1.capture_time,coalesce(t1.next_capture_time,t1.capture_time))),2)
@@ -46,6 +48,7 @@ if __name__ == "__main__":
                        ,camera_id
                        ,max(dateDiff(second , capture_time,coalesce(next_capture_time,capture_time))) stay_time
                 from dwd_user_capture_detail where next_capture_time is not null
+                and toDate(capture_time) = %(date)s
                 group by date,camera_id,profile_id) AA group by AA.date,AA.camera_id
             )  t2 on toDate(t1.capture_time) = t2.date and t1.camera_id=t2.camera_id
 where toDate(t1.capture_time) = %(date)s
