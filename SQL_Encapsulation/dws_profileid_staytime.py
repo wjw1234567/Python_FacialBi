@@ -64,8 +64,8 @@ class StayTimeProcessor:
         g_unique["date_casino"] = (pd.to_datetime(g_unique['capture_time']) + pd.Timedelta(hours=6)).dt.floor('D')
         g_unique["batch_time"]=datetime.now()
 
-        bins = [0, 21, 39, 65, float('inf')]  # 区间边界：0-20，21-39，40+（可根据需要调整）
-        labels = ['0-20', '21-39', '39-65', '65+']  # 对应区间的标签
+        bins = [0, 21, 40, 65, float('inf')]  # 区间边界：0-20，21-39，40+（可根据需要调整）
+        labels = ['0-20', '21-40', '40-65', '65+']  # 对应区间的标签
 
         g_unique['Age_range'] = pd.cut(
             g_unique['age'],

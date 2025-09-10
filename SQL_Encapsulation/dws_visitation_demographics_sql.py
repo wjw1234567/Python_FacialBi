@@ -13,21 +13,26 @@ if __name__ == "__main__":
     delete_sql = f"alter table  {target_table} delete where  date=%(date)s"
 
     source_sql = f"""
-                select 
-                       date date
+                  
+                select
+                       toDate(capture_time) date
                       ,region_id
                       ,region_name
                       ,0 region_type
                       ,gender
-                      ,Age_range
+                      , case when age between 0 and 20 then '0-20'
+                             when age between 21 and 39 then '21-39'
+                             when age between 40 and 65 then '40-65'
+                             when age >65 then  '65+'
+                       end  Age_range
                       ,profile_type
                       ,member_tier
                       , count(distinct profile_id) visitors_num
                       , now() batch_time
-                 from Facial.dws_profileid_aggregation
+                 from dwd_user_capture_detail
                  where date=%(date)s
                 group by date,region_id,region_name,gender,Age_range,profile_type,member_tier
-
+                
     """
 
 
