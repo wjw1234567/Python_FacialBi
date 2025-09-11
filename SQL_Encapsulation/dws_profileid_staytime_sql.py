@@ -9,7 +9,9 @@ if __name__ == "__main__":
 
     date_list = ["2025-08-25", "2025-08-26", "2025-08-27"]
 
-    target_table = "dws_profileid_aggregation"
+    target_table = "dws_profileid_staytime"
+
+
     delete_sql = f"alter table  {target_table} delete where  date=%(date)s"
 
     source_sql = f"""
@@ -18,7 +20,7 @@ if __name__ == "__main__":
       ,t1.profile_id profile_id
       ,t1.region_id  region_id
       ,t1.region_name region_name
-      ,0 region_type
+      ,t1.region_type
       ,t1.member_tier
       ,gender
       ,case when age between 0 and 20 then '0-20'
@@ -52,13 +54,13 @@ if __name__ == "__main__":
                 group by date,camera_id,profile_id) AA group by AA.date,AA.camera_id
             )  t2 on toDate(t1.capture_time) = t2.date and t1.camera_id=t2.camera_id
 where toDate(t1.capture_time) = %(date)s
-group by date,profile_id,region_id,camera_id,date_casino,region_name,gender,Age_range,profile_type,t1.member_tier
+group by date,profile_id,region_id,camera_id,date_casino,region_name,gender,Age_range,profile_type,t1.member_tier,region_type
 
     """
 
 
 
-    ch = ClickHouseHandler(host='localhost', port=9000, user='default', password='ck_test', database='Facial')
+    ch = ClickHouseHandler(host='localhost', port=9000, user='default', password='ck_test', database='Facial',prefix=target_table)
 
 
     for date in date_list:

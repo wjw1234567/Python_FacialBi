@@ -1,12 +1,19 @@
 from clickhouse_driver import Client
+from Logger import Logger
+
+
 
 class ClickHouseHandler:
-    def __init__(self, host='localhost', port=9000, user='default', password='', database='default'):
+    def __init__(self, host='localhost', port=9000, user='default', password='', database='default',prefix=None):
         self.host = host
         self.port = port
         self.user = user
         self.password = password
         self.database = database
+        self.prefix=prefix
+        self.logger = Logger(log_dir="./logs", prefix=self.prefix)
+
+
 
     def stream_query_insert(self, source_sql: str, target_table: str,condict:dict, batch_size: int = 10000):
         """
@@ -49,11 +56,19 @@ class ClickHouseHandler:
         """
         删除目标表分区数据
         """
-        with Client(host=self.host, port=self.port, user=self.user,
-                    password=self.password, database=self.database) as client:
-            print(f"执行删除: {delete_sql}")
-            client.execute(delete_sql,params=condict)
-            print(f"{condict.get('date','')} 已执行完成删除 {table_name}  的数据")
+        try:
+            with Client(host=self.host, port=self.port, user=self.user,
+                        password=self.password, database=self.database) as client:
+                print(f"执行删除: {delete_sql}")
+                client.execute(delete_sql,params=condict)
+                print(f"{condict.get('date','')} 已执行完成删除 {table_name}  的数据")
+                self.logger.log(f"{condict.get('date','')} 已执行完成删除 {table_name}  的数据")
+
+
+        except Exception as e:
+
+            self.logger.error(f"执行delete语句出错: {type(e).__name__}: {str(e)}")
+
 
 
     # 配合stream_query_insert流式查询，需要加工的采取这种方式，可支配的
@@ -61,13 +76,21 @@ class ClickHouseHandler:
         """
         批量写入 ClickHouse
         """
-        if not data:
-            return
-        col_str = ', '.join(columns)
-        with Client(host=self.host, port=self.port, user=self.user,
-                    password=self.password, database=self.database) as client:
-            client.execute(f"INSERT INTO {table_name} ({col_str}) VALUES", data)
-        print(f"已写入 {len(data)} 行到 {table_name}")
+
+        try:
+
+            if not data:
+                return
+            col_str = ', '.join(columns)
+            with Client(host=self.host, port=self.port, user=self.user,
+                        password=self.password, database=self.database) as client:
+                client.execute(f"INSERT INTO {table_name} ({col_str}) VALUES", data)
+            print(f"已写入 {len(data)} 行到 {table_name}")
+            self.logger.log(f"已写入 {len(data)} 行到 {table_name}")
+
+        except Exception as e:
+
+            self.logger.error(f"执行_insert_batch出错: {type(e).__name__}: {str(e)}")
 
 
     # 直接采取insert into select 的机制
@@ -76,14 +99,22 @@ class ClickHouseHandler:
         ClickHouse 原生执行 INSERT INTO ... SELECT
         """
 
-        with Client(host=self.host, port=self.port, user=self.user,
-                    password=self.password, database=self.database) as client:
+        try:
 
-            column_names = self._get_query_columns(source_sql, client,condit)
-            col_str = ', '.join(column_names)
+            with Client(host=self.host, port=self.port, user=self.user,
+                        password=self.password, database=self.database) as client:
 
-            client.execute(f"INSERT INTO {target_table} ({col_str}) {source_sql}",params=condit)
-        print(f"{condit.get('date','')}已写入 到  {target_table}")
+                column_names = self._get_query_columns(source_sql, client,condit)
+                col_str = ', '.join(column_names)
+
+                client.execute(f"INSERT INTO {target_table} ({col_str}) {source_sql}",params=condit)
+            print(f"{condit.get('date','')}已写入 到  {target_table}")
+            self.logger.log(f"{condit.get('date','')}已写入 到  {target_table}")
+
+        except Exception as e:
+
+            self.logger.error(f"执行_insert_into_select出错: {type(e).__name__}: {str(e)}")
+
 
 
 

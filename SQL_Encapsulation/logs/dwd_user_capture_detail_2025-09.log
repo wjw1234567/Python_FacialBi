@@ -1,0 +1,81 @@
+2025-09-11 18:02:18 [INFO] 2025-08-25 已执行完成删除 dwd_user_capture_detail  的数据
+2025-09-11 18:02:18 [INFO] 2025-08-25已写入 到  dwd_user_capture_detail
+2025-09-11 18:02:18 [INFO] 2025-08-26 已执行完成删除 dwd_user_capture_detail  的数据
+2025-09-11 18:02:18 [INFO] 2025-08-26已写入 到  dwd_user_capture_detail
+2025-09-11 18:02:18 [INFO] 2025-08-27 已执行完成删除 dwd_user_capture_detail  的数据
+2025-09-11 18:02:18 [INFO] 2025-08-27已写入 到  dwd_user_capture_detail
+2025-09-11 18:03:08 [INFO] 2025-08-25 已执行完成删除 dwd_user_capture_detail  的数据
+2025-09-11 18:03:09 [ERROR] 执行_insert_into_select出错: ServerException: Code: 62.
+DB::Exception: Syntax error: failed at position 1466 (,) (line 55, col 29): ,capture_time
+        ) A1 where region_id <> last_region_id order by profile_id,capture_time
+
+    ) LIMIT 0. Expected one of: element of ORDER BY expression, expression with optional alias, element of expression with optional alias, lambda expression. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::createDeprecated(String const&, int, bool) @ 0x0000000012a2f6ad
+2. DB::parseQueryAndMovePosition(DB::IParser&, char const*&, char const*, String const&, bool, unsigned long, unsigned long, unsigned long) @ 0x0000000019087672
+3. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x000000001708f2e0
+4. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+5. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+6. DB::TCPHandler::run() @ 0x000000001853eab8
+7. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+8. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+9. Poco::PooledThread::run() @ 0x000000001d868207
+10. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+11. ? @ 0x0000000000094ac3
+12. ? @ 0x0000000000125a04
+
+2025-09-11 18:03:09 [INFO] 2025-08-26 已执行完成删除 dwd_user_capture_detail  的数据
+2025-09-11 18:03:09 [ERROR] 执行_insert_into_select出错: ServerException: Code: 62.
+DB::Exception: Syntax error: failed at position 1466 (,) (line 55, col 29): ,capture_time
+        ) A1 where region_id <> last_region_id order by profile_id,capture_time
+
+    ) LIMIT 0. Expected one of: element of ORDER BY expression, expression with optional alias, element of expression with optional alias, lambda expression. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::createDeprecated(String const&, int, bool) @ 0x0000000012a2f6ad
+2. DB::parseQueryAndMovePosition(DB::IParser&, char const*&, char const*, String const&, bool, unsigned long, unsigned long, unsigned long) @ 0x0000000019087672
+3. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x000000001708f2e0
+4. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+5. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+6. DB::TCPHandler::run() @ 0x000000001853eab8
+7. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+8. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+9. Poco::PooledThread::run() @ 0x000000001d868207
+10. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+11. ? @ 0x0000000000094ac3
+12. ? @ 0x0000000000125a04
+
+2025-09-11 18:03:09 [INFO] 2025-08-27 已执行完成删除 dwd_user_capture_detail  的数据
+2025-09-11 18:03:09 [ERROR] 执行_insert_into_select出错: ServerException: Code: 62.
+DB::Exception: Syntax error: failed at position 1466 (,) (line 55, col 29): ,capture_time
+        ) A1 where region_id <> last_region_id order by profile_id,capture_time
+
+    ) LIMIT 0. Expected one of: element of ORDER BY expression, expression with optional alias, element of expression with optional alias, lambda expression. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::createDeprecated(String const&, int, bool) @ 0x0000000012a2f6ad
+2. DB::parseQueryAndMovePosition(DB::IParser&, char const*&, char const*, String const&, bool, unsigned long, unsigned long, unsigned long) @ 0x0000000019087672
+3. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x000000001708f2e0
+4. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+5. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+6. DB::TCPHandler::run() @ 0x000000001853eab8
+7. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+8. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+9. Poco::PooledThread::run() @ 0x000000001d868207
+10. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+11. ? @ 0x0000000000094ac3
+12. ? @ 0x0000000000125a04
+
+2025-09-11 18:04:05 [INFO] 2025-08-25 已执行完成删除 dwd_user_capture_detail  的数据
+2025-09-11 18:04:05 [INFO] 2025-08-25已写入 到  dwd_user_capture_detail
+2025-09-11 18:04:05 [INFO] 2025-08-26 已执行完成删除 dwd_user_capture_detail  的数据
+2025-09-11 18:04:05 [INFO] 2025-08-26已写入 到  dwd_user_capture_detail
+2025-09-11 18:04:05 [INFO] 2025-08-27 已执行完成删除 dwd_user_capture_detail  的数据
+2025-09-11 18:04:05 [INFO] 2025-08-27已写入 到  dwd_user_capture_detail
+2025-09-11 18:21:00 [INFO] 2025-08-25 已执行完成删除 dwd_user_capture_detail  的数据
+2025-09-11 18:21:01 [INFO] 2025-08-25已写入 到  dwd_user_capture_detail
+2025-09-11 18:21:01 [INFO] 2025-08-26 已执行完成删除 dwd_user_capture_detail  的数据
+2025-09-11 18:21:01 [INFO] 2025-08-26已写入 到  dwd_user_capture_detail
+2025-09-11 18:21:01 [INFO] 2025-08-27 已执行完成删除 dwd_user_capture_detail  的数据
+2025-09-11 18:21:01 [INFO] 2025-08-27已写入 到  dwd_user_capture_detail

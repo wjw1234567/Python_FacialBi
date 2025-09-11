@@ -1,5 +1,5 @@
 from datetime  import datetime
-from ClickHouseHandler_log import ClickHouseHandler
+from ClickHouseHandler import ClickHouseHandler
 
 
 if __name__ == "__main__":
@@ -73,7 +73,7 @@ if __name__ == "__main__":
 
 
 
-    ch = ClickHouseHandler(host='localhost', port=9000, user='default', password='ck_test', database='Facial')
+    ch = ClickHouseHandler(host='localhost', port=9000, user='default', password='ck_test', database='Facial',prefix=target_table)
 
     for date in date_list:
 

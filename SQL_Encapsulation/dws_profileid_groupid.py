@@ -6,6 +6,7 @@ from datetime import datetime
 class CaptureGroupProcessor:
     def __init__(self, host="localhost", port=9000, user="default", password="", database="default"):
         self.client = Client(host=host, port=port, user=user, password=password, database=database)
+        self.delete_client = Client(host=host, port=port, user=user, password=password, database=database)
 
     def read_data(self, date: str):
         """
@@ -91,7 +92,7 @@ class CaptureGroupProcessor:
         result = result.loc[max_time_idx].sort_index()  # sort_index()保持原数据顺序
 
         filtered_df=result[result["date_hour"] ==pd.to_datetime("2025-08-25 14:00:00")]
-        filtered_df.to_excel("filtered_df.xlsx", sheet_name="filtered_df", index=False)
+        # filtered_df.to_excel("filtered_df.xlsx", sheet_name="filtered_df", index=False)
 
 
 
@@ -109,7 +110,7 @@ class CaptureGroupProcessor:
             )
         )
 
-        bins = [0,1, 2, 3, 4,5, float('inf')]  # 区间边界：0-20，21-39，40+（可根据需要调整）
+        bins = [0,1, 2, 3, 4,5, float('inf')]  # 区间边界：0-20，21-39，40+（可根据需要调整）,bin一定比label多一位
         labels = ['1', '2', '3', '4','5','5+']  # 对应区间的标签
 
         agg_df['group_type'] = pd.cut(
@@ -146,27 +147,28 @@ class CaptureGroupProcessor:
             print(f"Inserted {len(batch)} rows into {target_table}")
 
 
-    # def _format_value(self, v):
-    #     if v is None:
-    #         return "NULL"
-    #     if isinstance(v, str):
-    #         return f"'{v}'"
-    #     return str(v)
+
 
     def process_one_day(self, date: str, target_table: str):
+
+
+        detele_sql=f"alter table  {target_table} delete where toDate(date_hour)= %(date)s "
+        self.delete_client.execute(detele_sql,params={"date":date})
+        print(f"已清除{target_table} {date} 的数据")
+
+
         df = self.read_data(date)
         print(f"Read {len(df)} rows for {date}")
         if df.empty:
             return
         result = self.process_grouping(df)
-        result.to_excel("result.xlsx",sheet_name="sheet_result", index=False)
-        # self.write_data(result, target_table)
+        # result.to_excel("result.xlsx",sheet_name="sheet_result", index=False)
+        self.write_data(result, target_table)
         print(f"Wrote {len(result)} rows to {target_table}")
-
 
 
 
 # 使用示例
 if __name__ == "__main__":
     processor = CaptureGroupProcessor(host="localhost", port=9000, user="default", password="ck_test", database="Facial")
-    processor.process_one_day("2025-08-25", "dws_user_capture_grouped")
+    processor.process_one_day("2025-08-25", "dws_profileid_group")
