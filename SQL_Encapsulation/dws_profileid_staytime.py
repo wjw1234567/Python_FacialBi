@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 from joblib import Parallel, delayed
 
 
+
 class StayTimeProcessor:
     def __init__(self, host="localhost", port=9000, user="default", password="", database="default"):
         self.client = Client(host=host, port=port, user=user, password=password, database=database)
