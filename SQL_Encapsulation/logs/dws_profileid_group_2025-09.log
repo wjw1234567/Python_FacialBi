@@ -10,3 +10,31 @@
 2025-09-11 18:20:46 [INFO] 2025-08-26已写入 到  dws_profileid_group
 2025-09-11 18:20:46 [INFO] 2025-08-27 已执行完成删除 dws_profileid_group  的数据
 2025-09-11 18:20:46 [INFO] 2025-08-27已写入 到  dws_profileid_group
+2025-09-18 15:44:26 [ERROR] 执行delete语句出错: TypeError: getaddrinfo() argument 1 must be string or None
+2025-09-18 15:44:26 [ERROR] 执行_insert_into_select出错: TypeError: getaddrinfo() argument 1 must be string or None
+2025-09-18 15:44:26 [ERROR] 执行delete语句出错: TypeError: getaddrinfo() argument 1 must be string or None
+2025-09-18 15:44:26 [ERROR] 执行_insert_into_select出错: TypeError: getaddrinfo() argument 1 must be string or None
+2025-09-18 15:44:26 [ERROR] 执行delete语句出错: TypeError: getaddrinfo() argument 1 must be string or None
+2025-09-18 15:44:26 [ERROR] 执行_insert_into_select出错: TypeError: getaddrinfo() argument 1 must be string or None
+2025-09-18 15:57:10 [ERROR] 执行delete语句出错: TypeError: getaddrinfo() argument 1 must be string or None
+2025-09-18 15:58:08 [INFO] 2025-08-25 已执行完成删除 dws_profileid_group  的数据
+2025-09-18 15:58:09 [ERROR] 执行_insert_batch出错: AttributeError: 'str' object has no attribute 'tzinfo'
+2025-09-18 15:58:09 [INFO] 2025-08-26 已执行完成删除 dws_profileid_group  的数据
+2025-09-18 15:58:09 [ERROR] 执行_insert_batch出错: AttributeError: 'str' object has no attribute 'tzinfo'
+2025-09-18 15:58:09 [INFO] 2025-08-27 已执行完成删除 dws_profileid_group  的数据
+2025-09-18 15:58:09 [ERROR] 执行_insert_batch出错: AttributeError: 'str' object has no attribute 'tzinfo'
+2025-09-18 16:15:56 [INFO] 2025-08-25 已执行完成删除 dws_profileid_group  的数据
+2025-09-18 16:15:57 [INFO] 已写入 235 行到 dws_profileid_group
+2025-09-18 16:15:57 [INFO] 2025-08-26 已执行完成删除 dws_profileid_group  的数据
+2025-09-18 16:15:57 [INFO] 已写入 207 行到 dws_profileid_group
+2025-09-18 16:15:57 [INFO] 2025-08-27 已执行完成删除 dws_profileid_group  的数据
+2025-09-18 16:15:57 [INFO] 已写入 224 行到 dws_profileid_group
+2025-09-18 18:12:41 [INFO] 已清除dws_profileid_group 2025-08-25 的数据
+2025-09-18 18:12:41 [INFO] Inserted 235 rows into dws_profileid_group
+2025-09-18 18:12:41 [INFO] Wrote 235 rows to dws_profileid_group
+2025-09-18 18:12:41 [INFO] 已清除dws_profileid_group 2025-08-26 的数据
+2025-09-18 18:12:41 [INFO] Inserted 207 rows into dws_profileid_group
+2025-09-18 18:12:41 [INFO] Wrote 207 rows to dws_profileid_group
+2025-09-18 18:12:41 [INFO] 已清除dws_profileid_group 2025-08-27 的数据
+2025-09-18 18:12:41 [INFO] Inserted 224 rows into dws_profileid_group
+2025-09-18 18:12:41 [INFO] Wrote 224 rows to dws_profileid_group

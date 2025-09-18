@@ -10,9 +10,18 @@ from Logger import Logger
 
 class TrackHeatmap:
 
-    def __init__(self, host="localhost", port=9000, user="default", password="", database="default",prefix=None):
-        self.client = Client(host=host, port=port, user=user, password=password, database=database)
-        self.delete_client = Client(host=host, port=port, user=user, password=password, database=database)
+    def __init__(self, host=['localhost','localhost'], port=[9000,9000], user=['default','default'], password=['',''], database=['default','default'],prefix=None):
+
+        self.host = host
+        self.port = port
+        self.user = user
+        self.password = password
+        self.database = database
+
+        self.client = Client(host=host[0], port=port[0], user=user[0], password=password[0], database=database[0])
+        self.wd_client = Client(host=host[1], port=port[1], user=user[1], password=password[1], database=database[1])
+
+
         self.prefix=prefix
         self.logger = Logger(log_dir="./logs", prefix=self.prefix)
 
@@ -139,7 +148,7 @@ class TrackHeatmap:
         for date in date_list:
             try:
                 delete_sql=f"alter table {target_table} delete where date = %(date)s"
-                self.client.execute(delete_sql,params={"date":date})
+                self.wd_client.execute(delete_sql,params={"date":date})
 
 
                 query = f"""
@@ -178,7 +187,7 @@ class TrackHeatmap:
 
                     for i in range(0,total_rows,batch_size):
                         batch_df = big_df.iloc[i:i + batch_size]  # 截取当前批次数据
-                        self.insert_df(self.client, target_table, batch_df)
+                        self.insert_df(self.wd_client, target_table, batch_df)
                         print(f"{date} 第 {i // batch_size + 1} 批写入 {len(batch_df)} 行，累计 {min(i + batch_size, total_rows)}/{total_rows} 行")
                         self.logger.log(
                             f"{date} 第 {i // batch_size + 1} 批写入 {len(batch_df)} 行，累计 {min(i + batch_size, total_rows)}/{total_rows} 行"
@@ -199,5 +208,6 @@ if __name__ == "__main__":
 
     target_table="dws_visitor_path_track_heatmap"
     date_list=['2025-08-25','2025-08-26','2025-08-27']
-    trackheatmap = TrackHeatmap(host="localhost", port=9000, user="default", password="ck_test",database="Facial",prefix=target_table)
+    trackheatmap = TrackHeatmap(host=["localhost", "localhost"], port=[9000, 9000], user=["default", "default"],
+                                  password=["ck_test", "ck_test"], database=["Facial", "Facial"],prefix=target_table)
     trackheatmap.process_main(target_table, date_list)

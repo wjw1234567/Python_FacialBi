@@ -1,5 +1,7 @@
 from datetime  import datetime
-from ClickHouseHandler import ClickHouseHandler
+# from ClickHouseHandler import ClickHouseHandler
+
+from ClickHouseHandler_stream import ClickHouseHandler
 
 
 if __name__ == "__main__":
@@ -51,11 +53,11 @@ if __name__ == "__main__":
          , v1.gender
 
             FROM (select profile_id,capture_time,member_tier,age,gender,region_name
-                  from  Facial.dwd_user_capture_original
+                  from  dwd_user_capture_original
                   where toDate(capture_time) =  %(date)s
                 ) v1
             JOIN  (select profile_id,capture_time,member_tier,age,gender,region_name
-                  from  Facial.dwd_user_capture_original
+                  from  dwd_user_capture_original
                   where toDate(capture_time) =  %(date)s
                 ) v2
                 ON v1.profile_id = v2.profile_id
@@ -69,12 +71,12 @@ if __name__ == "__main__":
 
 
 
-    ch = ClickHouseHandler(host='localhost', port=9000, user='default', password='ck_test', database='Facial',prefix=target_table)
+    ch = ClickHouseHandler(host=['localhost','localhost'], port=[9000,9000], user=['default','default'], password=['ck_test','ck_test'], database=['Facial','Facial'],prefix=target_table)
 
     for date in date_list:
 
         ch.delete_partition(delete_sql, target_table,{"date":date})
-        ch._insert_into_select(source_sql, target_table,{"date":date})
+        ch.stream_query_insert(source_sql, target_table,{"date":date})
         # ch.stream_query_insert(source_sql, target_table,{"date":date},1000)
 
 

@@ -1,6 +1,6 @@
 from datetime  import datetime
-from ClickHouseHandler import ClickHouseHandler
-
+# from ClickHouseHandler import ClickHouseHandler
+from ClickHouseHandler_stream import ClickHouseHandler
 
 if __name__ == "__main__":
 
@@ -50,7 +50,7 @@ select
                       ,profile_type
                       ,member_tier
                       , count(distinct profile_id) visitors_num
-                      , 0 stay_time
+                      , toDecimal32(0,2) stay_time
                       , 0 less15min_visitor_num
 
                       , 0 new_zone_num
@@ -62,7 +62,7 @@ select
 
 
 
-                 from Facial.dwd_user_capture_detail
+                 from dwd_user_capture_detail
                  where date=%(date)s
                 group by date,region_id,region_name,gender,Age_range,profile_type,member_tier,region_type,date_casino
 union all
@@ -76,7 +76,7 @@ union all
                         , profile_type
                         , member_tier
                         , 0 visitors_num
-                        , sum(stay_time)    stay_time1
+                        , sum(stay_time)    
                         , count(distinct  case when stay_time<15*60 then profile_id end) less15min_visitor_num
 
                         , 0 new_zone_num
@@ -84,7 +84,7 @@ union all
                         , 0 new_casino_num
                         , 0 return_casino_num
 
-                 from Facial.dws_profileid_staytime t1
+                 from dws_profileid_staytime t1
                   where date=%(date)s
                 group by date,region_id,region_name,gender,Age_range,profile_type,member_tier,region_type,date_casino
 
@@ -102,7 +102,7 @@ union all
                  ,a1.profile_type
                  ,a1.member_tier
                  , 0 visitors_num
-                 , 0    stay_time1
+                 , toDecimal32(0,2) stay_time
                  , 0 less15min_visitor_num
 
                  ,count(distinct case when is_return_zone = 0 then a1.profile_id end) new_zone_num
@@ -125,10 +125,10 @@ union all
                      ,s2.is_return is_return_zone
                      ,s3.is_return is_return_casino
 
-                from (select * from Facial.dws_profileid_staytime where date = %(date)s) s1
-                 left join (select toString(date) date,profile_id,region_id,count(distinct profile_id) is_return from Facial.dws_profileid_staytime group by date,profile_id,region_id) s2
+                from (select * from dws_profileid_staytime where date = %(date)s) s1
+                 left join (select toString(date) date,profile_id,region_id,count(distinct profile_id) is_return from dws_profileid_staytime group by date,profile_id,region_id) s2
                     on s2.date=toString(s1.date- interval 2 month) and s2.profile_id=s1.profile_id and s2.region_id=s1.region_id
-                 left join (select toString(date_casino) date_casino,profile_id,region_id,count(distinct profile_id) is_return from Facial.dws_profileid_staytime group by date_casino,profile_id,region_id) s3
+                 left join (select toString(date_casino) date_casino,profile_id,region_id,count(distinct profile_id) is_return from dws_profileid_staytime group by date_casino,profile_id,region_id) s3
                     on s3.date_casino=toString(s1.date- interval 1 DAY) and s3.profile_id=s1.profile_id and s3.region_id=s1.region_id ) a1
 
             group by a1.date,a1.date_casino,a1.region_id,a1.region_name,a1.region_type,a1.gender,a1.Age_range,a1.profile_type,a1.member_tier
@@ -142,12 +142,12 @@ group by  s1.date, date_casino,region_id, region_name, region_type, gender, Age_
 
 
 
-    ch = ClickHouseHandler(host='localhost', port=9000, user='default', password='ck_test', database='Facial',prefix=target_table)
+    ch = ClickHouseHandler(host=['localhost','localhost'], port=[9000,9000], user=['default','default'], password=['ck_test','ck_test'], database=['Facial','Facial'],prefix=target_table)
 
     for date in date_list:
 
         ch.delete_partition(delete_sql, target_table,{"date":date})
-        ch._insert_into_select(source_sql, target_table,{"date":date})
+        ch.stream_query_insert(source_sql, target_table,{"date":date})
         # ch.stream_query_insert(source_sql, target_table,{"date":date},1000)
 
 

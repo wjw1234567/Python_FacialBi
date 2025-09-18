@@ -76,5 +76,3 @@ for main_key, sub_dict in nested_dict.items():
 cam_dict={1: {"last_group_id": 'AA', "last_time": 'AAA'},2:{"last_group_id": 'BB', "last_time": 'BBB'}}
 cam_dict.get(0)
 
-
-

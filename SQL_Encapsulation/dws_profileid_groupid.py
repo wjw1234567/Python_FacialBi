@@ -2,11 +2,25 @@ from clickhouse_driver import Client
 import pandas as pd
 import numpy as np
 from datetime import datetime
+from Logger import Logger
+
+
 
 class CaptureGroupProcessor:
-    def __init__(self, host="localhost", port=9000, user="default", password="", database="default"):
-        self.client = Client(host=host, port=port, user=user, password=password, database=database)
-        self.delete_client = Client(host=host, port=port, user=user, password=password, database=database)
+    def __init__(self, host=["localhost","localhost"], port=[9000,9000], user=["default","default"], password=["",""], database=["default","default"],prefix=None):
+
+        self.host = host
+        self.port = port
+        self.user = user
+        self.password = password
+        self.database = database
+
+        self.client = Client(host=host[0], port=port[0], user=user[0], password=password[0], database=database[0])
+        self.wd_client = Client(host=host[1], port=port[1], user=user[1], password=password[1], database=database[1])
+
+        self.prefix = prefix
+        self.logger = Logger(log_dir="./logs", prefix=self.prefix)
+
 
     def read_data(self, date: str):
         """
@@ -72,32 +86,12 @@ class CaptureGroupProcessor:
 
         result = pd.concat(result_list, ignore_index=True)
 
-        # 按 date, profile_id, region_name 聚合
-        # agg_df = (
-        #     result.groupby(
-        #         ["date_hour", "date_casino_hour","profile_id", "profile_type", "member_tier",
-        #          "Age_range", "gender", "camera_id", "region_id", "region_name"],
-        #         as_index=False, observed=True
-        #     )
-        #     .agg(
-        #         mingroupid=("group_id", "min"),
-        #         maxcapturetime=("capture_time", "max")
-        #          )
-        # )
 
         # 获取用户在每个小时内最大的capture_time.默认用户在一个小时内进赌场一次
         # 相当于row_number() over (partition by (formatDateTime(capture_time,'%Y-%m-%d %H:00:00'),profile_id) order by capture_time desc)
         max_time_idx = result.groupby(["date_hour", "profile_id"])["capture_time"].idxmax()
         #通过索引提取对应的记录（即每组最新的记录）
         result = result.loc[max_time_idx].sort_index()  # sort_index()保持原数据顺序
-
-        filtered_df=result[result["date_hour"] ==pd.to_datetime("2025-08-25 14:00:00")]
-        # filtered_df.to_excel("filtered_df.xlsx", sheet_name="filtered_df", index=False)
-
-
-
-
-        # result.to_excel("result.xlsx", sheet_name="聚合后", index=False)
 
 
         # 根据"date_hour", "date_casino_hour", "group_id"进行分组获取每个组的人数
@@ -143,8 +137,9 @@ class CaptureGroupProcessor:
         for i in range(0, len(data), batch_size):
             batch = data[i:i + batch_size]
             sql = f"INSERT INTO {target_table} ({col_str}) VALUES"
-            self.client.execute(sql, batch)
+            self.wd_client.execute(sql, batch)
             print(f"Inserted {len(batch)} rows into {target_table}")
+            self.logger.log(f"Inserted {len(batch)} rows into {target_table}")
 
 
 
@@ -153,8 +148,9 @@ class CaptureGroupProcessor:
 
 
         detele_sql=f"alter table  {target_table} delete where toDate(date_hour)= %(date)s "
-        self.delete_client.execute(detele_sql,params={"date":date})
+        self.wd_client.execute(detele_sql,params={"date":date})
         print(f"已清除{target_table} {date} 的数据")
+        self.logger.log(f"已清除{target_table} {date} 的数据")
 
 
         df = self.read_data(date)
@@ -165,10 +161,20 @@ class CaptureGroupProcessor:
         # result.to_excel("result.xlsx",sheet_name="sheet_result", index=False)
         self.write_data(result, target_table)
         print(f"Wrote {len(result)} rows to {target_table}")
+        self.logger.log(f"Wrote {len(result)} rows to {target_table}")
 
 
 
 # 使用示例
 if __name__ == "__main__":
-    processor = CaptureGroupProcessor(host="localhost", port=9000, user="default", password="ck_test", database="Facial")
-    processor.process_one_day("2025-08-25", "dws_profileid_group")
+
+
+    date_list = ['2025-08-25', '2025-08-26', '2025-08-27']  # 默认处理昨天
+    target_table = "dws_profileid_group"
+
+    processor = CaptureGroupProcessor(host=["localhost","localhost"], port=[9000,9000], user=["default","default"], password=["ck_test","ck_test"], database=["Facial","Facial"], prefix=target_table)
+
+    for date in date_list:
+        processor.process_one_day(date, target_table)
+
+

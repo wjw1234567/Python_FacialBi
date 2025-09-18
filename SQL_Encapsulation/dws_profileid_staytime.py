@@ -2,10 +2,23 @@ from clickhouse_driver import Client
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
+from Logger import Logger
+
 
 class StayTimeProcessor:
-    def __init__(self, host="localhost", port=9000, user="default", password="", database="default"):
-        self.client = Client(host=host, port=port, user=user, password=password, database=database)
+    def __init__(self,  host=["localhost","localhost"], port=[9000,9000], user=["default","default"], password=["",""], database=["default","default"],prefix=None):
+        self.host = host
+        self.port = port
+        self.user = user
+        self.password = password
+        self.database = database
+
+        self.client = Client(host=host[0], port=port[0], user=user[0], password=password[0], database=database[0])
+        self.wd_client = Client(host=host[1], port=port[1], user=user[1], password=password[1], database=database[1])
+
+        self.prefix = prefix
+        self.logger = Logger(log_dir="./logs", prefix=self.prefix)
+
 
     def read_data(self, date: str):
         """按天读取 clickhouse 数据"""
@@ -40,7 +53,7 @@ class StayTimeProcessor:
             return pd.DataFrame()
 
         df["capture_time"] = pd.to_datetime(df["capture_time"])
-        df["date"] = (pd.to_datetime(df['capture_time'])).dt.floor('D')
+        df["date"] = pd.to_datetime(df['capture_time']).dt.floor('D')
         df["date_casino"] = (pd.to_datetime(df['capture_time']) + pd.Timedelta(hours=6)).dt.floor('D')
 
         df["region_type"] = ''
@@ -113,23 +126,31 @@ class StayTimeProcessor:
 
 
     def write_data(self, df: pd.DataFrame, target_table: str, date: str, batch_size: int = 10000):
-        if df.empty:
-            return
 
-        columns = df.columns.tolist()
+        try:
 
-        # 转成 list of tuples
-        records = [tuple(x) for x in df[columns].to_numpy()]
 
-        sql = f"""
-       INSERT INTO {target_table} ({",".join(columns)}) VALUES
-        """
+            if df.empty:
+                return
 
-        # 分批写入
-        for i in range(0, len(records), batch_size):
-            batch = records[i:i + batch_size]
-            self.client.execute(sql, batch)
-            print(f"Inserted batch {i // batch_size + 1}, size={len(batch)}")
+            columns = df.columns.tolist()
+
+            # 转成 list of tuples
+            records = [tuple(x) for x in df[columns].to_numpy()]
+
+            sql = f"""
+           INSERT INTO {target_table} ({",".join(columns)}) VALUES
+            """
+
+            # 分批写入
+            for i in range(0, len(records), batch_size):
+                batch = records[i:i + batch_size]
+                self.wd_client.execute(sql, batch)
+                print(f"Inserted batch {i // batch_size + 1}, size={len(batch)}")
+                self.logger.log(f"Inserted batch {i // batch_size + 1}, size={len(batch)}")
+
+        except Exception as e:
+            self.logger.error(f"执行write_data语句出错: {type(e).__name__}: {str(e)}")
 
 
 
@@ -137,7 +158,7 @@ class StayTimeProcessor:
 
     def process_one_day(self, date: str, target_table: str):
 
-        self.client.execute(f"alter table {target_table} delete where date = %(date)s", {"date": date})
+        self.wd_client.execute(f"alter table {target_table} delete where date = %(date)s", {"date": date})
         print(f"已执行完删除{date}的数据")
 
         df = self.read_data(date)
@@ -147,9 +168,12 @@ class StayTimeProcessor:
 
 
 if __name__ == "__main__":
-    processor = StayTimeProcessor(host="localhost", port=9000, user="default", password="ck_test", database="Facial")
+
     date_list = ['2025-08-25','2025-08-26','2025-08-27']  # 默认处理昨天
     target_table="dws_profileid_staytime"
+    processor = StayTimeProcessor(host=["localhost", "localhost"], port=[9000, 9000], user=["default", "default"],
+                                  password=["ck_test", "ck_test"], database=["Facial", "Facial"], prefix=target_table)
+
 
     for date in date_list:
         processor.process_one_day(date, target_table)

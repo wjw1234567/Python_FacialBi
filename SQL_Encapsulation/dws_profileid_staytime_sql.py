@@ -1,6 +1,6 @@
 from datetime  import datetime
-from ClickHouseHandler import ClickHouseHandler
-
+# from ClickHouseHandler import ClickHouseHandler
+from ClickHouseHandler_stream import ClickHouseHandler
 
 if __name__ == "__main__":
 
@@ -39,7 +39,7 @@ if __name__ == "__main__":
            else toDecimal64(max(dateDiff(second , t1.capture_time,coalesce(t1.next_capture_time,t1.capture_time))),2)
           end stay_time
       ,now() batch_time
-     from Facial.dwd_user_capture_detail t1
+     from dwd_user_capture_detail t1
      left join (
         select
            AA.date
@@ -53,7 +53,7 @@ if __name__ == "__main__":
                        ,profile_id
                        ,max(dateDiff(second , capture_time,coalesce(next_capture_time,capture_time))) stay_time
 
-                from Facial.dwd_user_capture_detail  where   next_capture_time is not null and 
+                from dwd_user_capture_detail  where   next_capture_time is not null and 
                  toDate(capture_time) = %(date)s
                 group by date,date_casino,region_id,profile_id) AA
         group by AA.date,AA.region_id, AA.date_casino
@@ -66,13 +66,13 @@ group by date,profile_id,region_id,date_casino,region_name,gender,Age_range,prof
         """
 
 
-    ch = ClickHouseHandler(host='localhost', port=9000, user='default', password='ck_test', database='Facial',prefix=target_table)
+    ch = ClickHouseHandler(host=['localhost','localhost'], port=[9000,9000], user=['default','default'], password=['ck_test','ck_test'], database=['Facial','Facial'],prefix=target_table)
 
 
     for date in date_list:
 
         ch.delete_partition(delete_sql, target_table,{"date":date})
-        ch._insert_into_select(source_sql, target_table,{"date":date})
+        ch.stream_query_insert(source_sql, target_table,{"date":date})
         # ch.stream_query_insert(source_sql, target_table,{"date":date},1000)
 
 

@@ -16,3 +16,39 @@
 2025-09-16 18:35:35 [INFO] 2025-08-26已写入 到  dws_visitation_demographics
 2025-09-16 18:35:35 [INFO] 2025-08-27 已执行完成删除 dws_visitation_demographics  的数据
 2025-09-16 18:35:35 [INFO] 2025-08-27已写入 到  dws_visitation_demographics
+2025-09-17 09:43:32 [INFO] 2025-08-25 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-17 09:43:32 [INFO] 2025-08-25已写入 到  dws_visitation_demographics
+2025-09-17 09:43:32 [INFO] 2025-08-26 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-17 09:43:33 [INFO] 2025-08-26已写入 到  dws_visitation_demographics
+2025-09-17 09:43:33 [INFO] 2025-08-27 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-17 09:43:33 [INFO] 2025-08-27已写入 到  dws_visitation_demographics
+2025-09-18 17:44:02 [INFO] 2025-08-25 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-18 17:44:03 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-18 17:44:03 [INFO] 2025-08-26 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-18 17:44:03 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-18 17:44:03 [INFO] 2025-08-27 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-18 17:44:03 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-18 17:44:14 [INFO] 2025-08-25 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-18 17:44:14 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-18 17:44:14 [INFO] 2025-08-26 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-18 17:44:14 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-18 17:44:14 [INFO] 2025-08-27 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-18 17:44:15 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-18 17:48:40 [INFO] 2025-08-25 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-18 17:48:40 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-18 17:48:40 [INFO] 2025-08-26 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-18 17:48:41 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-18 17:48:41 [INFO] 2025-08-27 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-18 17:48:41 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-18 17:52:03 [INFO] 2025-08-25 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-18 17:52:03 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-18 17:52:03 [INFO] 2025-08-26 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-18 17:52:04 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-18 17:52:04 [INFO] 2025-08-27 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-18 17:52:04 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-18 17:54:35 [INFO] 2025-08-25 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-18 17:54:36 [INFO] 已写入 1154 行到 dws_visitation_demographics
+2025-09-18 17:54:36 [INFO] 2025-08-26 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-18 17:54:36 [INFO] 已写入 1132 行到 dws_visitation_demographics
+2025-09-18 17:54:36 [INFO] 2025-08-27 已执行完成删除 dws_visitation_demographics  的数据
+2025-09-18 17:54:36 [INFO] 已写入 1090 行到 dws_visitation_demographics

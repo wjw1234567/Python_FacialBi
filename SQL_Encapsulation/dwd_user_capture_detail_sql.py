@@ -1,5 +1,6 @@
 from datetime  import datetime
-from ClickHouseHandler import ClickHouseHandler
+# from ClickHouseHandler import ClickHouseHandler
+from ClickHouseHandler_stream import ClickHouseHandler
 
 
 if __name__ == "__main__":
@@ -73,12 +74,12 @@ if __name__ == "__main__":
 
 
 
-    ch = ClickHouseHandler(host='localhost', port=9000, user='default', password='ck_test', database='Facial',prefix=target_table)
+    ch = ClickHouseHandler(host=['localhost','localhost'], port=[9000,9000], user=['default','default'], password=['ck_test','ck_test'], database=['Facial','Facial'],prefix=target_table)
 
     for date in date_list:
 
         ch.delete_partition(delete_sql, target_table,{"date":date})
-        ch._insert_into_select(source_sql, target_table,{"date":date})
+        ch.stream_query_insert(source_sql, target_table,{"date":date})
         # ch.stream_query_insert(source_sql, target_table,{"date":date},1000)
 
 
