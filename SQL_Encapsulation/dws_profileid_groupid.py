@@ -44,7 +44,7 @@ class CaptureGroupProcessor:
         # df["date_hour"] = df["capture_time"].dt.date.astype(str)
 
         df["date_hour"] = df["capture_time"].dt.floor('h')
-        df["date_casino_hour"] = df["capture_time"].dt.floor('h')+ pd.Timedelta(hours=6)
+        df["date_casino_hour"] = df["capture_time"].dt.floor('h') - pd.Timedelta(hours=6)
 
         return df
 

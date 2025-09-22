@@ -38,3 +38,9 @@
 2025-09-18 18:12:41 [INFO] 已清除dws_profileid_group 2025-08-27 的数据
 2025-09-18 18:12:41 [INFO] Inserted 224 rows into dws_profileid_group
 2025-09-18 18:12:41 [INFO] Wrote 224 rows to dws_profileid_group
+2025-09-22 14:57:34 [INFO] 2025-08-25 已执行完成删除 dws_profileid_group  的数据
+2025-09-22 14:57:34 [INFO] 已写入 235 行到 dws_profileid_group
+2025-09-22 14:57:34 [INFO] 2025-08-26 已执行完成删除 dws_profileid_group  的数据
+2025-09-22 14:57:35 [INFO] 已写入 207 行到 dws_profileid_group
+2025-09-22 14:57:35 [INFO] 2025-08-27 已执行完成删除 dws_profileid_group  的数据
+2025-09-22 14:57:35 [INFO] 已写入 224 行到 dws_profileid_group

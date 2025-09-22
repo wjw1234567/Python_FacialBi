@@ -37,7 +37,7 @@ select
     from
 (select
                        toDate(capture_time) date
-                      ,toDate(capture_time+21600) date_casino
+                      ,toDate(capture_time-21600) date_casino
                       ,region_id
                       ,region_name
                       ,region_type

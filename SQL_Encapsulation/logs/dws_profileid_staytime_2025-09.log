@@ -32,3 +32,9 @@
 2025-09-18 17:34:01 [INFO] Inserted batch 1, size=4952
 2025-09-18 17:34:02 [INFO] Inserted batch 1, size=4784
 2025-09-18 17:34:02 [INFO] Inserted batch 1, size=4767
+2025-09-22 14:57:42 [INFO] 2025-08-25 已执行完成删除 dws_profileid_staytime  的数据
+2025-09-22 14:57:43 [INFO] 已写入 4025 行到 dws_profileid_staytime
+2025-09-22 14:57:43 [INFO] 2025-08-26 已执行完成删除 dws_profileid_staytime  的数据
+2025-09-22 14:57:43 [INFO] 已写入 4114 行到 dws_profileid_staytime
+2025-09-22 14:57:43 [INFO] 2025-08-27 已执行完成删除 dws_profileid_staytime  的数据
+2025-09-22 14:57:43 [INFO] 已写入 4191 行到 dws_profileid_staytime

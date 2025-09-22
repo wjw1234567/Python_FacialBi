@@ -98,3 +98,12 @@ DB::Exception: Syntax error: failed at position 1466 (,) (line 55, col 29): ,cap
 2025-09-18 15:52:09 [INFO] 2025-08-27 已执行完成删除 dwd_user_capture_detail  的数据
 2025-09-18 15:52:10 [INFO] 已写入 10000 行到 dwd_user_capture_detail
 2025-09-18 15:52:10 [INFO] 已写入 3650 行到 dwd_user_capture_detail
+2025-09-22 14:57:12 [INFO] 2025-08-25 已执行完成删除 dwd_user_capture_detail  的数据
+2025-09-22 14:57:12 [INFO] 已写入 10000 行到 dwd_user_capture_detail
+2025-09-22 14:57:12 [INFO] 已写入 3599 行到 dwd_user_capture_detail
+2025-09-22 14:57:12 [INFO] 2025-08-26 已执行完成删除 dwd_user_capture_detail  的数据
+2025-09-22 14:57:13 [INFO] 已写入 10000 行到 dwd_user_capture_detail
+2025-09-22 14:57:13 [INFO] 已写入 3407 行到 dwd_user_capture_detail
+2025-09-22 14:57:13 [INFO] 2025-08-27 已执行完成删除 dwd_user_capture_detail  的数据
+2025-09-22 14:57:13 [INFO] 已写入 10000 行到 dwd_user_capture_detail
+2025-09-22 14:57:13 [INFO] 已写入 3650 行到 dwd_user_capture_detail

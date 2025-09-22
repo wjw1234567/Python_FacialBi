@@ -18,8 +18,8 @@ if __name__ == "__main__":
                 select            
                          formatDateTime(capture_time,'%%Y-%%m-%%d %%H:00:00') date
                         ,formatDateTime(capture_time,'%%H:00') date_hour
-                        ,formatDateTime(capture_time+21600,'%%Y-%%m-%%d %%H:00:00') date_casino
-                        ,formatDateTime(capture_time+21600,'%%H:00') date_casino_hour
+                        ,formatDateTime(capture_time-21600,'%%Y-%%m-%%d %%H:00:00') date_casino
+                        ,formatDateTime(capture_time-21600,'%%H:00') date_casino_hour
                       ,region_id
                       ,region_name
                       ,region_type

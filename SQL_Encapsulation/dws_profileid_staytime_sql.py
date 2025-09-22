@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     source_sql = f"""
             select toDate(t1.capture_time) date
-      ,toDate(t1.capture_time+21600 )  date_casino
+      ,toDate(t1.capture_time-21600 )  date_casino
       ,t1.profile_id profile_id
       ,t1.region_id  region_id
       ,t1.region_name region_name
@@ -48,7 +48,7 @@ if __name__ == "__main__":
          ,round(sum(stay_time)/count(distinct profile_id),2) stay_time_avg
         from
             (select  toDate(capture_time) date
-                     ,toDate(capture_time+21600 ) date_casino
+                     ,toDate(capture_time-21600 ) date_casino
                        ,region_id
                        ,profile_id
                        ,max(dateDiff(second , capture_time,coalesce(next_capture_time,capture_time))) stay_time
@@ -60,7 +60,7 @@ if __name__ == "__main__":
             )  t2
          on         toDate(t1.capture_time) = t2.date
                 and t1.region_id=t2.region_id
-                and toDate(t1.capture_time+21600 )= t2.date_casino
+                and toDate(t1.capture_time-21600 )= t2.date_casino
 where toDate(t1.capture_time) = %(date)s
 group by date,profile_id,region_id,date_casino,region_name,gender,Age_range,profile_type,t1.member_tier,region_type
         """

@@ -50,7 +50,7 @@ select AA.profile_id
 
 
 select toDateTime(formatDateTime(capture_time,'%%Y-%%m-%%d %%H:00:00')) date_hour
-      ,toDateTime(formatDateTime(capture_time+21600,'%%Y-%%m-%%d %%H:00:00')) date_casino_hour
+      ,toDateTime(formatDateTime(capture_time - 21600,'%%Y-%%m-%%d %%H:00:00')) date_casino_hour
       ,group_id
 
       ,CASE

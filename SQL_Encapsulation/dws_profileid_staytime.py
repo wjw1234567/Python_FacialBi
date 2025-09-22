@@ -54,7 +54,7 @@ class StayTimeProcessor:
 
         df["capture_time"] = pd.to_datetime(df["capture_time"])
         df["date"] = pd.to_datetime(df['capture_time']).dt.floor('D')
-        df["date_casino"] = (pd.to_datetime(df['capture_time']) + pd.Timedelta(hours=6)).dt.floor('D')
+        df["date_casino"] = (pd.to_datetime(df['capture_time']) - pd.Timedelta(hours=6)).dt.floor('D')
 
         df["region_type"] = ''
 
