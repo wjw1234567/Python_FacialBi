@@ -23,3 +23,204 @@
 2025-09-22 14:58:06 [INFO] 已写入 310 行到 dws_visitation_analytics_and_casino_entrances
 2025-09-22 14:58:06 [INFO] 2025-08-27 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
 2025-09-22 14:58:06 [INFO] 已写入 312 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-25 18:03:19 [INFO] 2025-08-25 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:03:39 [INFO] 2025-08-25 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:03:54 [INFO] 2025-08-25 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:03:55 [ERROR] 执行_insert_batch出错: ServerException: Code: 16.
+DB::Exception: No such column t1.profile_id in table Facial.dws_visitation_analytics_and_casino_entrances (297f95cf-b598-4ccc-9865-f91d0d83f91b). Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String const&, String>(int, FormatStringHelperImpl<std::type_identity<String const&>::type, std::type_identity<String>::type>, String const&, String&&) @ 0x000000000cefe50b
+3. DB::InterpreterInsertQuery::getSampleBlock(DB::ASTInsertQuery const&, std::shared_ptr<DB::IStorage> const&, std::shared_ptr<DB::StorageInMemoryMetadata const> const&, std::shared_ptr<DB::Context const>, bool, bool) @ 0x0000000016cb4517
+4. DB::InterpreterInsertQuery::execute() @ 0x0000000016cb8f6c
+5. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+6. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+7. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+8. DB::TCPHandler::run() @ 0x000000001853eab8
+9. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+10. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+11. Poco::PooledThread::run() @ 0x000000001d868207
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+13. ? @ 0x0000000000094ac3
+14. ? @ 0x0000000000125a04
+
+2025-09-25 18:03:55 [ERROR] 执行_insert_batch出错: ServerException: Code: 16.
+DB::Exception: No such column t1.profile_id in table Facial.dws_visitation_analytics_and_casino_entrances (297f95cf-b598-4ccc-9865-f91d0d83f91b). Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String const&, String>(int, FormatStringHelperImpl<std::type_identity<String const&>::type, std::type_identity<String>::type>, String const&, String&&) @ 0x000000000cefe50b
+3. DB::InterpreterInsertQuery::getSampleBlock(DB::ASTInsertQuery const&, std::shared_ptr<DB::IStorage> const&, std::shared_ptr<DB::StorageInMemoryMetadata const> const&, std::shared_ptr<DB::Context const>, bool, bool) @ 0x0000000016cb4517
+4. DB::InterpreterInsertQuery::execute() @ 0x0000000016cb8f6c
+5. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+6. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+7. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+8. DB::TCPHandler::run() @ 0x000000001853eab8
+9. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+10. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+11. Poco::PooledThread::run() @ 0x000000001d868207
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+13. ? @ 0x0000000000094ac3
+14. ? @ 0x0000000000125a04
+
+2025-09-25 18:03:55 [INFO] 2025-08-26 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:03:55 [ERROR] 执行_insert_batch出错: ServerException: Code: 16.
+DB::Exception: No such column t1.profile_id in table Facial.dws_visitation_analytics_and_casino_entrances (297f95cf-b598-4ccc-9865-f91d0d83f91b). Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String const&, String>(int, FormatStringHelperImpl<std::type_identity<String const&>::type, std::type_identity<String>::type>, String const&, String&&) @ 0x000000000cefe50b
+3. DB::InterpreterInsertQuery::getSampleBlock(DB::ASTInsertQuery const&, std::shared_ptr<DB::IStorage> const&, std::shared_ptr<DB::StorageInMemoryMetadata const> const&, std::shared_ptr<DB::Context const>, bool, bool) @ 0x0000000016cb4517
+4. DB::InterpreterInsertQuery::execute() @ 0x0000000016cb8f6c
+5. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+6. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+7. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+8. DB::TCPHandler::run() @ 0x000000001853eab8
+9. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+10. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+11. Poco::PooledThread::run() @ 0x000000001d868207
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+13. ? @ 0x0000000000094ac3
+14. ? @ 0x0000000000125a04
+
+2025-09-25 18:03:55 [ERROR] 执行_insert_batch出错: ServerException: Code: 16.
+DB::Exception: No such column t1.profile_id in table Facial.dws_visitation_analytics_and_casino_entrances (297f95cf-b598-4ccc-9865-f91d0d83f91b). Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String const&, String>(int, FormatStringHelperImpl<std::type_identity<String const&>::type, std::type_identity<String>::type>, String const&, String&&) @ 0x000000000cefe50b
+3. DB::InterpreterInsertQuery::getSampleBlock(DB::ASTInsertQuery const&, std::shared_ptr<DB::IStorage> const&, std::shared_ptr<DB::StorageInMemoryMetadata const> const&, std::shared_ptr<DB::Context const>, bool, bool) @ 0x0000000016cb4517
+4. DB::InterpreterInsertQuery::execute() @ 0x0000000016cb8f6c
+5. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+6. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+7. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+8. DB::TCPHandler::run() @ 0x000000001853eab8
+9. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+10. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+11. Poco::PooledThread::run() @ 0x000000001d868207
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+13. ? @ 0x0000000000094ac3
+14. ? @ 0x0000000000125a04
+
+2025-09-25 18:03:55 [INFO] 2025-08-27 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:03:56 [ERROR] 执行_insert_batch出错: ServerException: Code: 16.
+DB::Exception: No such column t1.profile_id in table Facial.dws_visitation_analytics_and_casino_entrances (297f95cf-b598-4ccc-9865-f91d0d83f91b). Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String const&, String>(int, FormatStringHelperImpl<std::type_identity<String const&>::type, std::type_identity<String>::type>, String const&, String&&) @ 0x000000000cefe50b
+3. DB::InterpreterInsertQuery::getSampleBlock(DB::ASTInsertQuery const&, std::shared_ptr<DB::IStorage> const&, std::shared_ptr<DB::StorageInMemoryMetadata const> const&, std::shared_ptr<DB::Context const>, bool, bool) @ 0x0000000016cb4517
+4. DB::InterpreterInsertQuery::execute() @ 0x0000000016cb8f6c
+5. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+6. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+7. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+8. DB::TCPHandler::run() @ 0x000000001853eab8
+9. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+10. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+11. Poco::PooledThread::run() @ 0x000000001d868207
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+13. ? @ 0x0000000000094ac3
+14. ? @ 0x0000000000125a04
+
+2025-09-25 18:03:56 [ERROR] 执行_insert_batch出错: ServerException: Code: 16.
+DB::Exception: No such column t1.profile_id in table Facial.dws_visitation_analytics_and_casino_entrances (297f95cf-b598-4ccc-9865-f91d0d83f91b). Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String const&, String>(int, FormatStringHelperImpl<std::type_identity<String const&>::type, std::type_identity<String>::type>, String const&, String&&) @ 0x000000000cefe50b
+3. DB::InterpreterInsertQuery::getSampleBlock(DB::ASTInsertQuery const&, std::shared_ptr<DB::IStorage> const&, std::shared_ptr<DB::StorageInMemoryMetadata const> const&, std::shared_ptr<DB::Context const>, bool, bool) @ 0x0000000016cb4517
+4. DB::InterpreterInsertQuery::execute() @ 0x0000000016cb8f6c
+5. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+6. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+7. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+8. DB::TCPHandler::run() @ 0x000000001853eab8
+9. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+10. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+11. Poco::PooledThread::run() @ 0x000000001d868207
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+13. ? @ 0x0000000000094ac3
+14. ? @ 0x0000000000125a04
+
+2025-09-25 18:08:08 [INFO] 2025-08-25 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:08:09 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-25 18:08:09 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-25 18:08:09 [INFO] 2025-08-26 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:08:09 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-25 18:08:09 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-25 18:08:10 [INFO] 2025-08-27 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:08:10 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-25 18:08:10 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column stay_time: required argument is not an integer
+2025-09-25 18:09:36 [INFO] 2025-08-25 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:09:37 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column is_less15min_visitor: required argument is not an integer
+2025-09-25 18:09:37 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column is_less15min_visitor: required argument is not an integer
+2025-09-25 18:09:37 [INFO] 2025-08-26 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:09:37 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column is_less15min_visitor: required argument is not an integer
+2025-09-25 18:09:38 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column is_less15min_visitor: required argument is not an integer
+2025-09-25 18:09:38 [INFO] 2025-08-27 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:09:38 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column is_less15min_visitor: required argument is not an integer
+2025-09-25 18:09:38 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column is_less15min_visitor: required argument is not an integer
+2025-09-25 18:15:38 [INFO] 2025-08-25 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:15:39 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column is_less15min_visitor: required argument is not an integer
+2025-09-25 18:15:39 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column is_less15min_visitor: required argument is not an integer
+2025-09-25 18:15:39 [INFO] 2025-08-26 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:15:40 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column is_less15min_visitor: required argument is not an integer
+2025-09-25 18:15:40 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column is_less15min_visitor: required argument is not an integer
+2025-09-25 18:15:40 [INFO] 2025-08-27 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:15:40 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column is_less15min_visitor: required argument is not an integer
+2025-09-25 18:15:41 [ERROR] 执行_insert_batch出错: TypeMismatchError: Code: 53. Type mismatch in VALUES section. Repeat query with types_check=True for detailed info. Column is_less15min_visitor: required argument is not an integer
+2025-09-25 18:16:53 [INFO] 2025-08-25 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:16:54 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-25 18:16:54 [INFO] 已写入 6155 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-25 18:16:54 [INFO] 2025-08-26 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:16:55 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-25 18:16:55 [INFO] 已写入 5939 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-25 18:16:55 [INFO] 2025-08-27 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-25 18:16:56 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-25 18:16:56 [INFO] 已写入 6238 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 16:05:47 [INFO] 2025-08-25 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 16:06:25 [INFO] 2025-08-25 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 16:06:26 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 16:06:26 [INFO] 已写入 6155 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 16:06:26 [INFO] 2025-08-26 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 16:06:27 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 16:06:27 [INFO] 已写入 5939 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 16:06:27 [INFO] 2025-08-27 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 16:06:28 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 16:06:28 [INFO] 已写入 6238 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 16:43:18 [INFO] 2025-08-25 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 16:43:19 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 16:43:19 [INFO] 已写入 6155 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 16:43:19 [INFO] 2025-08-26 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 16:43:19 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 16:43:20 [INFO] 已写入 5939 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 16:43:20 [INFO] 2025-08-27 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 16:43:20 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 16:43:20 [INFO] 已写入 6238 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:45:02 [INFO] 2025-08-25 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 17:45:02 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:45:02 [INFO] 已写入 6155 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:45:02 [INFO] 2025-08-26 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 17:45:03 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:45:03 [INFO] 已写入 5939 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:45:03 [INFO] 2025-08-27 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 17:45:04 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:45:04 [INFO] 已写入 6238 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:45:36 [INFO] 2025-08-25 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 17:45:36 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:45:36 [INFO] 已写入 6155 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:45:36 [INFO] 2025-08-26 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 17:45:37 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:45:37 [INFO] 已写入 5939 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:45:37 [INFO] 2025-08-27 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 17:45:38 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:45:38 [INFO] 已写入 6238 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:46:53 [INFO] 2025-08-25 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 17:46:53 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:46:54 [INFO] 已写入 6155 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:46:54 [INFO] 2025-08-26 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 17:46:54 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:46:54 [INFO] 已写入 5939 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:46:54 [INFO] 2025-08-27 已执行完成删除 dws_visitation_analytics_and_casino_entrances  的数据
+2025-09-26 17:46:55 [INFO] 已写入 10000 行到 dws_visitation_analytics_and_casino_entrances
+2025-09-26 17:46:55 [INFO] 已写入 6238 行到 dws_visitation_analytics_and_casino_entrances

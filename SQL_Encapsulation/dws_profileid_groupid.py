@@ -90,10 +90,24 @@ class CaptureGroupProcessor:
         # 获取用户在每个小时内最大的capture_time.默认用户在一个小时内进赌场一次
         # 相当于row_number() over (partition by (formatDateTime(capture_time,'%Y-%m-%d %H:00:00'),profile_id) order by capture_time desc)
         max_time_idx = result.groupby(["date_hour", "profile_id"])["capture_time"].idxmax()
+
+
         #通过索引提取对应的记录（即每组最新的记录）
         result = result.loc[max_time_idx].sort_index()  # sort_index()保持原数据顺序
 
 
+
+
+        agg_df=result[["profile_id","date_hour","date_casino_hour","region_id","region_name","group_id","capture_time"]]
+        agg_df=agg_df.copy()
+        agg_df["batch_time"]=datetime.now()
+        # print(f"agg_df的字段为：{agg_df.columns.tolist()}，result={agg_df.head(10)}")
+
+        return agg_df
+
+
+
+        '''
         # 根据"date_hour", "date_casino_hour", "group_id"进行分组获取每个组的人数
         agg_df = (
             result.groupby(
@@ -117,7 +131,7 @@ class CaptureGroupProcessor:
         agg_df["batch_time"]=datetime.now()
 
         return agg_df
-
+        '''
 
 
     def write_data(self, df: pd.DataFrame, target_table: str, batch_size: int = 100000):
@@ -170,7 +184,7 @@ if __name__ == "__main__":
 
 
     date_list = ['2025-08-25', '2025-08-26', '2025-08-27']  # 默认处理昨天
-    target_table = "dws_profileid_group"
+    target_table = "dws_profileid_group_py"
 
     processor = CaptureGroupProcessor(host=["localhost","localhost"], port=[9000,9000], user=["default","default"], password=["ck_test","ck_test"], database=["Facial","Facial"], prefix=target_table)
 

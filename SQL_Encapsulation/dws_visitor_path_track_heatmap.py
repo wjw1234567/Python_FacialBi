@@ -78,6 +78,7 @@ class TrackHeatmap:
 
             bucket_best = {}
 
+
             # --- 3) 遍历窗口候选，更新每个 off_bin 最近点 (argMin)
             for idx  in window:
                 diff_min = (times[idx] - t1).astype("timedelta64[m]").astype(int)
@@ -163,6 +164,8 @@ class TrackHeatmap:
                     WHERE toDate(capture_time) = %(date)s
                     ORDER BY profile_id, capture_time
                 """
+
+
                 rows, cols = self.client.execute(query, params={"date":date},with_column_types=True)
                 columns = [c[0] for c in cols]
                 df_day = pd.DataFrame(rows, columns=columns)
@@ -175,7 +178,6 @@ class TrackHeatmap:
                 # 使用多线程处理每个用户
                 dfs = Parallel(n_jobs=8)(delayed(self.process_one_person) (g, target_bins) for g in grouped)
 
-                print(f"{date} 已删除 {len(df_day)} 行")
                 self.logger.log(f"{date} 已删除 {len(df_day)} 行")
 
 
@@ -188,12 +190,12 @@ class TrackHeatmap:
                     for i in range(0,total_rows,batch_size):
                         batch_df = big_df.iloc[i:i + batch_size]  # 截取当前批次数据
                         self.insert_df(self.wd_client, target_table, batch_df)
-                        print(f"{date} 第 {i // batch_size + 1} 批写入 {len(batch_df)} 行，累计 {min(i + batch_size, total_rows)}/{total_rows} 行")
+                        # print(f"{date} 第 {i // batch_size + 1} 批写入 {len(batch_df)} 行，累计 {min(i + batch_size, total_rows)}/{total_rows} 行")
                         self.logger.log(
                             f"{date} 第 {i // batch_size + 1} 批写入 {len(batch_df)} 行，累计 {min(i + batch_size, total_rows)}/{total_rows} 行"
                         )
 
-                    print(f"{date} 总条数写入 {len(big_df)} 行")
+                    # print(f"{date} 总条数写入 {len(big_df)} 行")
 
                     self.logger.log(f"{date} 总条数写入 {len(big_df)} 行")
 

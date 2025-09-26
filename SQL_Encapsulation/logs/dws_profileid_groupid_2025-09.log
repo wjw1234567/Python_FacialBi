@@ -1,0 +1,240 @@
+2025-09-26 15:35:49 [ERROR] 执行delete语句出错: ServerException: Code: 60.
+DB::Exception: Could not find table: dws_profileid_groupid. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String&>(int, FormatStringHelperImpl<std::type_identity<String&>::type>, String&) @ 0x000000000bfec00b
+3. DB::InterpreterAlterQuery::executeToTable(DB::ASTAlterQuery const&) @ 0x0000000016c5034b
+4. DB::InterpreterAlterQuery::execute() @ 0x0000000016c4baad
+5. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+6. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+7. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+8. DB::TCPHandler::run() @ 0x000000001853eab8
+9. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+10. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+11. Poco::PooledThread::run() @ 0x000000001d868207
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+13. ? @ 0x0000000000094ac3
+14. ? @ 0x0000000000125a04
+
+2025-09-26 15:35:49 [ERROR] 执行_insert_batch出错: ServerException: Code: 60.
+DB::Exception: Table Facial.dws_profileid_groupid does not exist. Maybe you meant Facial.dws_profileid_group?. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String, String, String, String>(int, FormatStringHelperImpl<std::type_identity<String>::type, std::type_identity<String>::type, std::type_identity<String>::type, std::type_identity<String>::type>, String&&, String&&, String&&, String&&) @ 0x000000000c08926b
+3. DB::IDatabase::getTable(String const&, std::shared_ptr<DB::Context const>) const @ 0x0000000015f516a9
+4. DB::DatabaseCatalog::getTableImpl(DB::StorageID const&, std::shared_ptr<DB::Context const>, std::optional<DB::Exception>*) const @ 0x0000000016b810ba
+5. DB::DatabaseCatalog::getTable(DB::StorageID const&, std::shared_ptr<DB::Context const>) const @ 0x0000000016b8a429
+6. DB::InterpreterInsertQuery::getInsertColumnNames() const @ 0x0000000016cb49a8
+7. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094dc7
+8. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+9. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+10. DB::TCPHandler::run() @ 0x000000001853eab8
+11. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+12. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+13. Poco::PooledThread::run() @ 0x000000001d868207
+14. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+15. ? @ 0x0000000000094ac3
+16. ? @ 0x0000000000125a04
+
+2025-09-26 15:35:49 [ERROR] 执行delete语句出错: ServerException: Code: 60.
+DB::Exception: Could not find table: dws_profileid_groupid. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String&>(int, FormatStringHelperImpl<std::type_identity<String&>::type>, String&) @ 0x000000000bfec00b
+3. DB::InterpreterAlterQuery::executeToTable(DB::ASTAlterQuery const&) @ 0x0000000016c5034b
+4. DB::InterpreterAlterQuery::execute() @ 0x0000000016c4baad
+5. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+6. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+7. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+8. DB::TCPHandler::run() @ 0x000000001853eab8
+9. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+10. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+11. Poco::PooledThread::run() @ 0x000000001d868207
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+13. ? @ 0x0000000000094ac3
+14. ? @ 0x0000000000125a04
+
+2025-09-26 15:35:49 [ERROR] 执行_insert_batch出错: ServerException: Code: 60.
+DB::Exception: Table Facial.dws_profileid_groupid does not exist. Maybe you meant Facial.dws_profileid_group?. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String, String, String, String>(int, FormatStringHelperImpl<std::type_identity<String>::type, std::type_identity<String>::type, std::type_identity<String>::type, std::type_identity<String>::type>, String&&, String&&, String&&, String&&) @ 0x000000000c08926b
+3. DB::IDatabase::getTable(String const&, std::shared_ptr<DB::Context const>) const @ 0x0000000015f516a9
+4. DB::DatabaseCatalog::getTableImpl(DB::StorageID const&, std::shared_ptr<DB::Context const>, std::optional<DB::Exception>*) const @ 0x0000000016b810ba
+5. DB::DatabaseCatalog::getTable(DB::StorageID const&, std::shared_ptr<DB::Context const>) const @ 0x0000000016b8a429
+6. DB::InterpreterInsertQuery::getInsertColumnNames() const @ 0x0000000016cb49a8
+7. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094dc7
+8. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+9. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+10. DB::TCPHandler::run() @ 0x000000001853eab8
+11. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+12. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+13. Poco::PooledThread::run() @ 0x000000001d868207
+14. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+15. ? @ 0x0000000000094ac3
+16. ? @ 0x0000000000125a04
+
+2025-09-26 15:35:49 [ERROR] 执行delete语句出错: ServerException: Code: 60.
+DB::Exception: Could not find table: dws_profileid_groupid. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String&>(int, FormatStringHelperImpl<std::type_identity<String&>::type>, String&) @ 0x000000000bfec00b
+3. DB::InterpreterAlterQuery::executeToTable(DB::ASTAlterQuery const&) @ 0x0000000016c5034b
+4. DB::InterpreterAlterQuery::execute() @ 0x0000000016c4baad
+5. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+6. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+7. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+8. DB::TCPHandler::run() @ 0x000000001853eab8
+9. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+10. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+11. Poco::PooledThread::run() @ 0x000000001d868207
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+13. ? @ 0x0000000000094ac3
+14. ? @ 0x0000000000125a04
+
+2025-09-26 15:35:50 [ERROR] 执行_insert_batch出错: ServerException: Code: 60.
+DB::Exception: Table Facial.dws_profileid_groupid does not exist. Maybe you meant Facial.dws_profileid_group?. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String, String, String, String>(int, FormatStringHelperImpl<std::type_identity<String>::type, std::type_identity<String>::type, std::type_identity<String>::type, std::type_identity<String>::type>, String&&, String&&, String&&, String&&) @ 0x000000000c08926b
+3. DB::IDatabase::getTable(String const&, std::shared_ptr<DB::Context const>) const @ 0x0000000015f516a9
+4. DB::DatabaseCatalog::getTableImpl(DB::StorageID const&, std::shared_ptr<DB::Context const>, std::optional<DB::Exception>*) const @ 0x0000000016b810ba
+5. DB::DatabaseCatalog::getTable(DB::StorageID const&, std::shared_ptr<DB::Context const>) const @ 0x0000000016b8a429
+6. DB::InterpreterInsertQuery::getInsertColumnNames() const @ 0x0000000016cb49a8
+7. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094dc7
+8. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+9. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+10. DB::TCPHandler::run() @ 0x000000001853eab8
+11. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+12. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+13. Poco::PooledThread::run() @ 0x000000001d868207
+14. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+15. ? @ 0x0000000000094ac3
+16. ? @ 0x0000000000125a04
+
+2025-09-26 15:37:36 [ERROR] 执行delete语句出错: ServerException: Code: 60.
+DB::Exception: Could not find table: dws_profileid_groupid. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String&>(int, FormatStringHelperImpl<std::type_identity<String&>::type>, String&) @ 0x000000000bfec00b
+3. DB::InterpreterAlterQuery::executeToTable(DB::ASTAlterQuery const&) @ 0x0000000016c5034b
+4. DB::InterpreterAlterQuery::execute() @ 0x0000000016c4baad
+5. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+6. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+7. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+8. DB::TCPHandler::run() @ 0x000000001853eab8
+9. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+10. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+11. Poco::PooledThread::run() @ 0x000000001d868207
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+13. ? @ 0x0000000000094ac3
+14. ? @ 0x0000000000125a04
+
+2025-09-26 15:37:36 [ERROR] 执行_insert_batch出错: ServerException: Code: 60.
+DB::Exception: Table Facial.dws_profileid_groupid does not exist. Maybe you meant Facial.dws_profileid_group?. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String, String, String, String>(int, FormatStringHelperImpl<std::type_identity<String>::type, std::type_identity<String>::type, std::type_identity<String>::type, std::type_identity<String>::type>, String&&, String&&, String&&, String&&) @ 0x000000000c08926b
+3. DB::IDatabase::getTable(String const&, std::shared_ptr<DB::Context const>) const @ 0x0000000015f516a9
+4. DB::DatabaseCatalog::getTableImpl(DB::StorageID const&, std::shared_ptr<DB::Context const>, std::optional<DB::Exception>*) const @ 0x0000000016b810ba
+5. DB::DatabaseCatalog::getTable(DB::StorageID const&, std::shared_ptr<DB::Context const>) const @ 0x0000000016b8a429
+6. DB::InterpreterInsertQuery::getInsertColumnNames() const @ 0x0000000016cb49a8
+7. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094dc7
+8. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+9. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+10. DB::TCPHandler::run() @ 0x000000001853eab8
+11. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+12. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+13. Poco::PooledThread::run() @ 0x000000001d868207
+14. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+15. ? @ 0x0000000000094ac3
+16. ? @ 0x0000000000125a04
+
+2025-09-26 15:37:36 [ERROR] 执行delete语句出错: ServerException: Code: 60.
+DB::Exception: Could not find table: dws_profileid_groupid. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String&>(int, FormatStringHelperImpl<std::type_identity<String&>::type>, String&) @ 0x000000000bfec00b
+3. DB::InterpreterAlterQuery::executeToTable(DB::ASTAlterQuery const&) @ 0x0000000016c5034b
+4. DB::InterpreterAlterQuery::execute() @ 0x0000000016c4baad
+5. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+6. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+7. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+8. DB::TCPHandler::run() @ 0x000000001853eab8
+9. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+10. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+11. Poco::PooledThread::run() @ 0x000000001d868207
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+13. ? @ 0x0000000000094ac3
+14. ? @ 0x0000000000125a04
+
+2025-09-26 15:37:36 [ERROR] 执行_insert_batch出错: ServerException: Code: 60.
+DB::Exception: Table Facial.dws_profileid_groupid does not exist. Maybe you meant Facial.dws_profileid_group?. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String, String, String, String>(int, FormatStringHelperImpl<std::type_identity<String>::type, std::type_identity<String>::type, std::type_identity<String>::type, std::type_identity<String>::type>, String&&, String&&, String&&, String&&) @ 0x000000000c08926b
+3. DB::IDatabase::getTable(String const&, std::shared_ptr<DB::Context const>) const @ 0x0000000015f516a9
+4. DB::DatabaseCatalog::getTableImpl(DB::StorageID const&, std::shared_ptr<DB::Context const>, std::optional<DB::Exception>*) const @ 0x0000000016b810ba
+5. DB::DatabaseCatalog::getTable(DB::StorageID const&, std::shared_ptr<DB::Context const>) const @ 0x0000000016b8a429
+6. DB::InterpreterInsertQuery::getInsertColumnNames() const @ 0x0000000016cb49a8
+7. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094dc7
+8. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+9. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+10. DB::TCPHandler::run() @ 0x000000001853eab8
+11. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+12. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+13. Poco::PooledThread::run() @ 0x000000001d868207
+14. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+15. ? @ 0x0000000000094ac3
+16. ? @ 0x0000000000125a04
+
+2025-09-26 15:37:37 [ERROR] 执行delete语句出错: ServerException: Code: 60.
+DB::Exception: Could not find table: dws_profileid_groupid. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String&>(int, FormatStringHelperImpl<std::type_identity<String&>::type>, String&) @ 0x000000000bfec00b
+3. DB::InterpreterAlterQuery::executeToTable(DB::ASTAlterQuery const&) @ 0x0000000016c5034b
+4. DB::InterpreterAlterQuery::execute() @ 0x0000000016c4baad
+5. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+6. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+7. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+8. DB::TCPHandler::run() @ 0x000000001853eab8
+9. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+10. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+11. Poco::PooledThread::run() @ 0x000000001d868207
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+13. ? @ 0x0000000000094ac3
+14. ? @ 0x0000000000125a04
+
+2025-09-26 15:37:37 [ERROR] 执行_insert_batch出错: ServerException: Code: 60.
+DB::Exception: Table Facial.dws_profileid_groupid does not exist. Maybe you meant Facial.dws_profileid_group?. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String, String, String, String>(int, FormatStringHelperImpl<std::type_identity<String>::type, std::type_identity<String>::type, std::type_identity<String>::type, std::type_identity<String>::type>, String&&, String&&, String&&, String&&) @ 0x000000000c08926b
+3. DB::IDatabase::getTable(String const&, std::shared_ptr<DB::Context const>) const @ 0x0000000015f516a9
+4. DB::DatabaseCatalog::getTableImpl(DB::StorageID const&, std::shared_ptr<DB::Context const>, std::optional<DB::Exception>*) const @ 0x0000000016b810ba
+5. DB::DatabaseCatalog::getTable(DB::StorageID const&, std::shared_ptr<DB::Context const>) const @ 0x0000000016b8a429
+6. DB::InterpreterInsertQuery::getInsertColumnNames() const @ 0x0000000016cb49a8
+7. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094dc7
+8. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+9. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+10. DB::TCPHandler::run() @ 0x000000001853eab8
+11. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+12. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+13. Poco::PooledThread::run() @ 0x000000001d868207
+14. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+15. ? @ 0x0000000000094ac3
+16. ? @ 0x0000000000125a04
+

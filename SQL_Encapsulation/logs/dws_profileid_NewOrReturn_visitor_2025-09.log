@@ -1,0 +1,162 @@
+2025-09-26 15:43:43 [ERROR] 执行delete语句出错: ServerException: Code: 47.
+DB::Exception: Missing columns: 'date_hour' while processing: 'isZeroOrNull(toDate(date_hour) = '2025-08-25'), _block_offset, _block_number, _disk_name, _part_granule_offset, _partition_id, profile_type, _sample_factor, _part_uuid, _part_data_version, _part_starting_offset, is_return_casino, _part_index, _part, gender, batch_time, region_id, is_less15min_visitor, region_name, is_return_zone, member_tier, region_type, Age_range, date_casino, profile_id, _part_offset, date', required columns: '_block_number' '_part_granule_offset' '_part_uuid' '_block_offset' '_partition_id' 'profile_type' '_sample_factor' '_disk_name' 'region_name' 'is_return_zone' '_part_data_version' '_part_starting_offset' 'date_hour' 'region_type' 'batch_time' 'gender' 'is_less15min_visitor' 'region_id' 'member_tier' 'Age_range' 'date_casino' 'profile_id' '_part_index' 'is_return_casino' 'date' '_part_offset' '_part', maybe you meant: 'profile_type', 'region_name', 'is_return_zone', 'region_type', 'batch_time', 'gender', 'is_less15min_visitor', 'region_id', 'member_tier', 'Age_range', 'date_casino', 'profile_id', 'is_return_casino' or 'date'. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::TreeRewriterResult::collectUsedColumns(std::shared_ptr<DB::IAST> const&, bool, bool) @ 0x0000000016ff7fa0
+3. DB::TreeRewriter::analyze(std::shared_ptr<DB::IAST>&, DB::NamesAndTypesList const&, std::shared_ptr<DB::IStorage const>, std::shared_ptr<DB::StorageSnapshot> const&, bool, bool, bool, bool) const @ 0x0000000017002c77
+4. DB::MutationsInterpreter::prepareMutationStages(std::vector<DB::MutationsInterpreter::Stage, std::allocator<DB::MutationsInterpreter::Stage>>&, bool) @ 0x0000000016d912bb
+5. DB::MutationsInterpreter::prepare(bool) @ 0x0000000016d8c317
+6. DB::MutationsInterpreter::MutationsInterpreter(std::shared_ptr<DB::IStorage>, std::shared_ptr<DB::StorageInMemoryMetadata const>, DB::MutationCommands, std::shared_ptr<DB::Context const>, DB::MutationsInterpreter::Settings) @ 0x0000000016d8291b
+7. DB::InterpreterAlterQuery::executeToTable(DB::ASTAlterQuery const&) @ 0x0000000016c4ecca
+8. DB::InterpreterAlterQuery::execute() @ 0x0000000016c4baad
+9. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+10. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+11. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+12. DB::TCPHandler::run() @ 0x000000001853eab8
+13. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+14. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+15. Poco::PooledThread::run() @ 0x000000001d868207
+16. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+17. ? @ 0x0000000000094ac3
+18. ? @ 0x0000000000125a04
+
+2025-09-26 15:43:43 [ERROR] 执行_insert_batch出错: ServerException: Code: 16.
+DB::Exception: No such column date_hour in table Facial.dws_profileid_NewOrReturn_visitor (d8ba9916-cbf7-4351-a6e4-8f4e0d6c6702). Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String const&, String>(int, FormatStringHelperImpl<std::type_identity<String const&>::type, std::type_identity<String>::type>, String const&, String&&) @ 0x000000000cefe50b
+3. DB::InterpreterInsertQuery::getSampleBlock(DB::ASTInsertQuery const&, std::shared_ptr<DB::IStorage> const&, std::shared_ptr<DB::StorageInMemoryMetadata const> const&, std::shared_ptr<DB::Context const>, bool, bool) @ 0x0000000016cb4517
+4. DB::InterpreterInsertQuery::execute() @ 0x0000000016cb8f6c
+5. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+6. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+7. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+8. DB::TCPHandler::run() @ 0x000000001853eab8
+9. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+10. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+11. Poco::PooledThread::run() @ 0x000000001d868207
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+13. ? @ 0x0000000000094ac3
+14. ? @ 0x0000000000125a04
+
+2025-09-26 15:43:43 [ERROR] 执行delete语句出错: ServerException: Code: 47.
+DB::Exception: Missing columns: 'date_hour' while processing: 'isZeroOrNull(toDate(date_hour) = '2025-08-26'), _block_offset, _block_number, _disk_name, _part_granule_offset, _partition_id, profile_type, _sample_factor, _part_uuid, _part_data_version, _part_starting_offset, is_return_casino, _part_index, _part, gender, batch_time, region_id, is_less15min_visitor, region_name, is_return_zone, member_tier, region_type, Age_range, date_casino, profile_id, _part_offset, date', required columns: '_block_number' '_part_granule_offset' '_part_uuid' '_block_offset' '_partition_id' 'profile_type' '_sample_factor' '_disk_name' 'region_name' 'is_return_zone' '_part_data_version' '_part_starting_offset' 'date_hour' 'region_type' 'batch_time' 'gender' 'is_less15min_visitor' 'region_id' 'member_tier' 'Age_range' 'date_casino' 'profile_id' '_part_index' 'is_return_casino' 'date' '_part_offset' '_part', maybe you meant: 'profile_type', 'region_name', 'is_return_zone', 'region_type', 'batch_time', 'gender', 'is_less15min_visitor', 'region_id', 'member_tier', 'Age_range', 'date_casino', 'profile_id', 'is_return_casino' or 'date'. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::TreeRewriterResult::collectUsedColumns(std::shared_ptr<DB::IAST> const&, bool, bool) @ 0x0000000016ff7fa0
+3. DB::TreeRewriter::analyze(std::shared_ptr<DB::IAST>&, DB::NamesAndTypesList const&, std::shared_ptr<DB::IStorage const>, std::shared_ptr<DB::StorageSnapshot> const&, bool, bool, bool, bool) const @ 0x0000000017002c77
+4. DB::MutationsInterpreter::prepareMutationStages(std::vector<DB::MutationsInterpreter::Stage, std::allocator<DB::MutationsInterpreter::Stage>>&, bool) @ 0x0000000016d912bb
+5. DB::MutationsInterpreter::prepare(bool) @ 0x0000000016d8c317
+6. DB::MutationsInterpreter::MutationsInterpreter(std::shared_ptr<DB::IStorage>, std::shared_ptr<DB::StorageInMemoryMetadata const>, DB::MutationCommands, std::shared_ptr<DB::Context const>, DB::MutationsInterpreter::Settings) @ 0x0000000016d8291b
+7. DB::InterpreterAlterQuery::executeToTable(DB::ASTAlterQuery const&) @ 0x0000000016c4ecca
+8. DB::InterpreterAlterQuery::execute() @ 0x0000000016c4baad
+9. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+10. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+11. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+12. DB::TCPHandler::run() @ 0x000000001853eab8
+13. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+14. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+15. Poco::PooledThread::run() @ 0x000000001d868207
+16. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+17. ? @ 0x0000000000094ac3
+18. ? @ 0x0000000000125a04
+
+2025-09-26 15:43:44 [ERROR] 执行_insert_batch出错: ServerException: Code: 16.
+DB::Exception: No such column date_hour in table Facial.dws_profileid_NewOrReturn_visitor (d8ba9916-cbf7-4351-a6e4-8f4e0d6c6702). Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String const&, String>(int, FormatStringHelperImpl<std::type_identity<String const&>::type, std::type_identity<String>::type>, String const&, String&&) @ 0x000000000cefe50b
+3. DB::InterpreterInsertQuery::getSampleBlock(DB::ASTInsertQuery const&, std::shared_ptr<DB::IStorage> const&, std::shared_ptr<DB::StorageInMemoryMetadata const> const&, std::shared_ptr<DB::Context const>, bool, bool) @ 0x0000000016cb4517
+4. DB::InterpreterInsertQuery::execute() @ 0x0000000016cb8f6c
+5. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+6. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+7. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+8. DB::TCPHandler::run() @ 0x000000001853eab8
+9. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+10. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+11. Poco::PooledThread::run() @ 0x000000001d868207
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+13. ? @ 0x0000000000094ac3
+14. ? @ 0x0000000000125a04
+
+2025-09-26 15:43:44 [ERROR] 执行delete语句出错: ServerException: Code: 47.
+DB::Exception: Missing columns: 'date_hour' while processing: 'isZeroOrNull(toDate(date_hour) = '2025-08-27'), _block_offset, _block_number, _disk_name, _part_granule_offset, _partition_id, profile_type, _sample_factor, _part_uuid, _part_data_version, _part_starting_offset, is_return_casino, _part_index, _part, gender, batch_time, region_id, is_less15min_visitor, region_name, is_return_zone, member_tier, region_type, Age_range, date_casino, profile_id, _part_offset, date', required columns: '_block_number' '_part_granule_offset' '_part_uuid' '_block_offset' '_partition_id' 'profile_type' '_sample_factor' '_disk_name' 'region_name' 'is_return_zone' '_part_data_version' '_part_starting_offset' 'date_hour' 'region_type' 'batch_time' 'gender' 'is_less15min_visitor' 'region_id' 'member_tier' 'Age_range' 'date_casino' 'profile_id' '_part_index' 'is_return_casino' 'date' '_part_offset' '_part', maybe you meant: 'profile_type', 'region_name', 'is_return_zone', 'region_type', 'batch_time', 'gender', 'is_less15min_visitor', 'region_id', 'member_tier', 'Age_range', 'date_casino', 'profile_id', 'is_return_casino' or 'date'. Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::TreeRewriterResult::collectUsedColumns(std::shared_ptr<DB::IAST> const&, bool, bool) @ 0x0000000016ff7fa0
+3. DB::TreeRewriter::analyze(std::shared_ptr<DB::IAST>&, DB::NamesAndTypesList const&, std::shared_ptr<DB::IStorage const>, std::shared_ptr<DB::StorageSnapshot> const&, bool, bool, bool, bool) const @ 0x0000000017002c77
+4. DB::MutationsInterpreter::prepareMutationStages(std::vector<DB::MutationsInterpreter::Stage, std::allocator<DB::MutationsInterpreter::Stage>>&, bool) @ 0x0000000016d912bb
+5. DB::MutationsInterpreter::prepare(bool) @ 0x0000000016d8c317
+6. DB::MutationsInterpreter::MutationsInterpreter(std::shared_ptr<DB::IStorage>, std::shared_ptr<DB::StorageInMemoryMetadata const>, DB::MutationCommands, std::shared_ptr<DB::Context const>, DB::MutationsInterpreter::Settings) @ 0x0000000016d8291b
+7. DB::InterpreterAlterQuery::executeToTable(DB::ASTAlterQuery const&) @ 0x0000000016c4ecca
+8. DB::InterpreterAlterQuery::execute() @ 0x0000000016c4baad
+9. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+10. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+11. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+12. DB::TCPHandler::run() @ 0x000000001853eab8
+13. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+14. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+15. Poco::PooledThread::run() @ 0x000000001d868207
+16. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+17. ? @ 0x0000000000094ac3
+18. ? @ 0x0000000000125a04
+
+2025-09-26 15:43:44 [ERROR] 执行_insert_batch出错: ServerException: Code: 16.
+DB::Exception: No such column date_hour in table Facial.dws_profileid_NewOrReturn_visitor (d8ba9916-cbf7-4351-a6e4-8f4e0d6c6702). Stack trace:
+
+0. DB::Exception::Exception(DB::Exception::MessageMasked&&, int, bool) @ 0x00000000127c721b
+1. DB::Exception::Exception(PreformattedMessage&&, int) @ 0x000000000bfd62cc
+2. DB::Exception::Exception<String const&, String>(int, FormatStringHelperImpl<std::type_identity<String const&>::type, std::type_identity<String>::type>, String const&, String&&) @ 0x000000000cefe50b
+3. DB::InterpreterInsertQuery::getSampleBlock(DB::ASTInsertQuery const&, std::shared_ptr<DB::IStorage> const&, std::shared_ptr<DB::StorageInMemoryMetadata const> const&, std::shared_ptr<DB::Context const>, bool, bool) @ 0x0000000016cb4517
+4. DB::InterpreterInsertQuery::execute() @ 0x0000000016cb8f6c
+5. DB::executeQueryImpl(char const*, char const*, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum, DB::ReadBuffer*, std::shared_ptr<DB::IAST>&, std::shared_ptr<DB::ImplicitTransactionControlExecutor>) @ 0x0000000017094b13
+6. DB::executeQuery(String const&, std::shared_ptr<DB::Context>, DB::QueryFlags, DB::QueryProcessingStage::Enum) @ 0x000000001708e480
+7. DB::TCPHandler::runImpl() @ 0x000000001851f0cc
+8. DB::TCPHandler::run() @ 0x000000001853eab8
+9. Poco::Net::TCPServerConnection::start() @ 0x000000001d89cb27
+10. Poco::Net::TCPServerDispatcher::run() @ 0x000000001d89cf79
+11. Poco::PooledThread::run() @ 0x000000001d868207
+12. Poco::ThreadImpl::runnableEntry(void*) @ 0x000000001d8667a1
+13. ? @ 0x0000000000094ac3
+14. ? @ 0x0000000000125a04
+
+2025-09-26 15:45:12 [INFO] 2025-08-25 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 15:45:13 [INFO] 已写入 4025 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 15:45:13 [INFO] 2025-08-26 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 15:45:13 [INFO] 已写入 4114 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 15:45:13 [INFO] 2025-08-27 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 15:45:14 [INFO] 已写入 4191 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 15:45:43 [INFO] 2025-08-25 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 15:45:43 [INFO] 已写入 4025 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 15:45:43 [INFO] 2025-08-26 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 15:45:43 [INFO] 已写入 4114 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 15:45:43 [INFO] 2025-08-27 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 15:45:44 [INFO] 已写入 4191 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 16:43:17 [INFO] 2025-08-25 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 16:43:17 [INFO] 已写入 4025 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 16:43:17 [INFO] 2025-08-26 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 16:43:17 [INFO] 已写入 4114 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 16:43:18 [INFO] 2025-08-27 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 16:43:18 [INFO] 已写入 4191 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 17:45:00 [INFO] 2025-08-25 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 17:45:01 [INFO] 已写入 4025 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 17:45:01 [INFO] 2025-08-26 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 17:45:01 [INFO] 已写入 4114 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 17:45:01 [INFO] 2025-08-27 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 17:45:01 [INFO] 已写入 4191 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 17:45:34 [INFO] 2025-08-25 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 17:45:35 [INFO] 已写入 4025 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 17:45:35 [INFO] 2025-08-26 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 17:45:35 [INFO] 已写入 4114 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 17:45:35 [INFO] 2025-08-27 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 17:45:35 [INFO] 已写入 4191 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 17:46:52 [INFO] 2025-08-25 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 17:46:52 [INFO] 已写入 4025 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 17:46:52 [INFO] 2025-08-26 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 17:46:52 [INFO] 已写入 4114 行到 dws_profileid_NewOrReturn_visitor
+2025-09-26 17:46:52 [INFO] 2025-08-27 已执行完成删除 dws_profileid_NewOrReturn_visitor  的数据
+2025-09-26 17:46:53 [INFO] 已写入 4191 行到 dws_profileid_NewOrReturn_visitor
